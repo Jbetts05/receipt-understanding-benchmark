@@ -1,0 +1,27 @@
+manifest_path: data/manifests/benchmark.jsonl
+images_root: data/raw/images
+
+sroie:
+  repo: zzzDavid/ICDAR-2019-SROIE
+  commit: 27be4271b251c256f695acbade9a801bffe85994
+  count: 80
+  id_width: 3
+  url_template: "https://raw.githubusercontent.com/{repo}/{commit}/data/{kind}/{sample_id}.{ext}"
+  split: trainval
+  license_note: >-
+    The project owner has affirmed redistribution permission for the hosted
+    experiment. The pinned mirror remains trainval-style data with potential
+    model-training overlap; do not describe it as an untouched held-out test set.
+
+cord:
+  dataset: naver-clova-ix/cord-v2
+  revision: 7f0115a4b758a71d6473b8d085751692da2fef98
+  split: test
+  license: CC-BY-4.0
+  total_rows: 100
+  sample_count: 20
+  selection_seed: 20260828
+  selected_indices:
+    [3, 11, 15, 26, 28, 34, 35, 42, 46, 47, 49, 58, 63, 68, 72, 73, 74, 80, 85, 98]
+  rows_api_template: >-
+    https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset={offset}&length=1

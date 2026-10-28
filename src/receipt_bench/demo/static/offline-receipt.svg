@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1120" viewBox="0 0 720 1120">
+  <rect width="720" height="1120" fill="#e8e4dd"/>
+  <rect x="84" y="40" width="552" height="1010" rx="8" fill="#fffdf8"/>
+  <g fill="#272727" font-family="Arial, sans-serif">
+    <text x="360" y="130" text-anchor="middle" font-size="34" font-weight="700">NORTH MARKET</text>
+    <text x="360" y="174" text-anchor="middle" font-size="18">SYNTHETIC OFFLINE RECEIPT</text>
+    <text x="120" y="255" font-size="18">DATE</text>
+    <text x="600" y="255" text-anchor="end" font-size="18">2026-08-30</text>
+    <text x="120" y="304" font-size="18">RECEIPT</text>
+    <text x="600" y="304" text-anchor="end" font-size="18">DEMO-001</text>
+    <text x="120" y="420" font-size="18">LUNCH</text>
+    <text x="600" y="420" text-anchor="end" font-size="18">24.80</text>
+    <text x="120" y="795" font-size="18">SUBTOTAL</text>
+    <text x="600" y="795" text-anchor="end" font-size="18">22.96</text>
+    <text x="120" y="842" font-size="18">TAX</text>
+    <text x="600" y="842" text-anchor="end" font-size="18">1.84</text>
+    <text x="120" y="914" font-size="26" font-weight="700">TOTAL</text>
+    <text x="600" y="914" text-anchor="end" font-size="26" font-weight="700">24.80</text>
+    <text x="360" y="1000" text-anchor="middle" font-size="16">DEMO DATA · NOT A BENCHMARK</text>
+  </g>
+  <g stroke="#aaa49a" stroke-width="2">
+    <line x1="120" y1="345" x2="600" y2="345"/>
+    <line x1="120" y1="745" x2="600" y2="745"/>
+  </g>
+</svg>

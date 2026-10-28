@@ -1,0 +1,251 @@
+{
+  "project_id": "sroie",
+  "name": "SROIE key information extraction",
+  "description": "Fixed trainval-style SROIE IDs 000-079 using the dataset's native company, address, date, and total string answer.",
+  "source": {
+    "dataset_id": "zzzDavid/ICDAR-2019-SROIE",
+    "revision": "27be4271b251c256f695acbade9a801bffe85994",
+    "split": "trainval",
+    "source_url": "https://github.com/zzzDavid/ICDAR-2019-SROIE",
+    "license": "Gated research use",
+    "attribution": "ICDAR 2019 SROIE task organizers; third-party mirror by zzzDavid",
+    "redistribution": "gated-no-redistribution"
+  },
+  "normalization_profile": "sroie-v1",
+  "schema_file": {
+    "schema_id": "sroie-native-answer",
+    "version": "1.0.0",
+    "path": "schemas/sroie.schema.json",
+    "content_hash": "775f870fde731146e29ceb57f154e25eecd5b1f8d6ce7dcc5729703d2f6fb9d8"
+  },
+  "prompt_files": [
+    {
+      "path": "prompts/sroie/direct-multimodal.v1.json"
+    },
+    {
+      "path": "prompts/sroie/ocr-normalizer.v1.json"
+    }
+  ],
+  "sample_set": {
+    "prefix": "sroie",
+    "indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79
+    ],
+    "id_width": 3,
+    "split": "trainval",
+    "language": "en",
+    "image": {
+      "kind": "image",
+      "path_template": "data/raw/images/sroie/27be4271b251c256f695acbade9a801bffe85994/{source_id}.jpg",
+      "media_type": "image/jpeg"
+    },
+    "gold": {
+      "kind": "gold",
+      "path_template": "data/raw/images/sroie/27be4271b251c256f695acbade9a801bffe85994/{source_id}.key.json",
+      "media_type": "application/json"
+    },
+    "ocr_reference": {
+      "kind": "ocr-reference",
+      "path_template": "data/raw/images/sroie/27be4271b251c256f695acbade9a801bffe85994/{source_id}.box.csv",
+      "media_type": "text/csv",
+      "selector": "columns[8:]"
+    }
+  },
+  "few_shot_selection_method": "duplicate-isolation-v2: for each duplicate-image pair (012/015 and 016/018), select the lower fixed source index as a prompt example and exclude its higher-ID counterpart so no prompt image appears in the scored set",
+  "few_shots": [
+    {
+      "sample_id": "sroie-012",
+      "reason": "Lower-ID member of the byte-identical 012/015 image pair, selected deterministically as the prompt example while 015 is excluded from scoring.",
+      "image_sha256": "c07bb1228ae7cc72d6510ae76dd1b6f542321d65ba38f99ad151ef64a68cafea",
+      "gold_sha256": "7337601c113d908681662c56e49f9698616b8fd6e4d1af01c703ef2b62538d01",
+      "ocr_sha256": "b4fc2da88e9ccde4ceca4223c927285569a283e08909a06d7d8d9eb9b36df992"
+    },
+    {
+      "sample_id": "sroie-016",
+      "reason": "Lower-ID member of the byte-identical 016/018 image pair, selected deterministically as the prompt example while conflicting-gold duplicate 018 is excluded from scoring.",
+      "image_sha256": "cf81742e708b6dda55b00856ec17ad2130e04f5caea3779a9d3e75a4f3bf5e1e",
+      "gold_sha256": "d8604d8fef8cf2676b0b527803c0aa1758106be175e12ba8ce480452da5ac5eb",
+      "ocr_sha256": "6bdaf463a3eb1ac949e7186f80bee96991c8c80c5933b6f4c2ac95a71a2f57e8"
+    }
+  ],
+  "excluded_samples": [
+    {
+      "sample_id": "sroie-015",
+      "reason": "Byte-identical to few-shot image sroie-012; excluded to prevent prompt-image leakage into scored results.",
+      "image_sha256": "c07bb1228ae7cc72d6510ae76dd1b6f542321d65ba38f99ad151ef64a68cafea",
+      "gold_sha256": "7337601c113d908681662c56e49f9698616b8fd6e4d1af01c703ef2b62538d01",
+      "ocr_sha256": "66a0383207708245bb681f79610ea3ecf2413af7dc4fcb652b3f1622dfb6b95e"
+    },
+    {
+      "sample_id": "sroie-018",
+      "reason": "Byte-identical to few-shot image sroie-016 and carries a conflicting address annotation; excluded to prevent leakage and ambiguous scoring.",
+      "image_sha256": "cf81742e708b6dda55b00856ec17ad2130e04f5caea3779a9d3e75a4f3bf5e1e",
+      "gold_sha256": "9a25327541dc0b25eb6b71abad97b638813d52ee932a56cf94410d7634b9e3e5",
+      "ocr_sha256": "93b8013a93cf80556f7ab2b4f934a6fffbb7c5608fa68a95d990a6c8a6b4f001"
+    }
+  ],
+  "compatibility_groups": [
+    {
+      "solution_ids": [
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "gpt-5.6-luna",
+        "gpt-5.4-mini",
+        "gpt-5.2",
+        "grok-4.6",
+        "mistral-large-3"
+      ],
+      "solution_kind": "direct-multimodal",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "Direct multimodal output is constrained to the complete SROIE schema."
+    },
+    {
+      "solution_ids": [
+        "mistral-document-ai-2512",
+        "mistral-ocr-4.0",
+        "azure-vision-read",
+        "content-understanding-read",
+        "content-understanding-layout"
+      ],
+      "solution_kind": "ocr-normalizer",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "OCR output is normalized under the complete SROIE schema."
+    },
+    {
+      "solution_ids": [
+        "mistral-document-ai-2512-text",
+        "mistral-ocr-4.0-text",
+        "azure-vision-read-text",
+        "content-understanding-read-text",
+        "content-understanding-layout-text"
+      ],
+      "solution_kind": "ocr-text",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "Standalone OCR is measured against the full-page SROIE box transcription using labeled-token recall, character error rate, and word error rate."
+    },
+    {
+      "solution_ids": [
+        "content-understanding-prebuilt-receipt-luna",
+        "document-intelligence-receipt-luna"
+      ],
+      "solution_kind": "native-normalizer",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "Native receipt output is normalized by GPT-5.6 Luna under the complete SROIE schema."
+    },
+    {
+      "solution_ids": [
+        "content-understanding-custom"
+      ],
+      "solution_kind": "native-custom",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "The project-specific custom analyzer declares all four SROIE fields.",
+      "deterministic_mapping_id": "content-understanding-sroie-native-v1"
+    },
+    {
+      "solution_ids": [
+        "content-understanding-prebuilt-receipt"
+      ],
+      "solution_kind": "native-prebuilt",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "Merchant name/address, transaction date, and total deterministically cover the complete SROIE schema.",
+      "deterministic_mapping_id": "content-understanding-prebuilt-to-sroie-v1"
+    },
+    {
+      "solution_ids": [
+        "document-intelligence-receipt"
+      ],
+      "solution_kind": "native-prebuilt",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "MerchantName, MerchantAddress, TransactionDate, and Total deterministically cover the complete SROIE schema.",
+      "deterministic_mapping_id": "document-intelligence-prebuilt-to-sroie-v1"
+    }
+  ],
+  "expected_sample_count": 80,
+  "expected_scored_sample_count": 76
+}

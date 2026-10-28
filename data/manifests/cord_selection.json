@@ -1,0 +1,133 @@
+{
+  "dataset": "naver-clova-ix/cord-v2",
+  "revision": "7f0115a4b758a71d6473b8d085751692da2fef98",
+  "sample_count": 20,
+  "selected_indices": [
+    3,
+    11,
+    15,
+    26,
+    28,
+    34,
+    35,
+    42,
+    46,
+    47,
+    49,
+    58,
+    63,
+    68,
+    72,
+    73,
+    74,
+    80,
+    85,
+    98
+  ],
+  "selection_formula": "sorted(random.Random(selection_seed).sample(range(total_rows), sample_count))",
+  "selection_seed": 20260828,
+  "source_ids": [
+    {
+      "index": 3,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=3&length=1",
+      "sample_id": "cord-003"
+    },
+    {
+      "index": 11,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=11&length=1",
+      "sample_id": "cord-011"
+    },
+    {
+      "index": 15,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=15&length=1",
+      "sample_id": "cord-015"
+    },
+    {
+      "index": 26,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=26&length=1",
+      "sample_id": "cord-026"
+    },
+    {
+      "index": 28,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=28&length=1",
+      "sample_id": "cord-028"
+    },
+    {
+      "index": 34,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=34&length=1",
+      "sample_id": "cord-034"
+    },
+    {
+      "index": 35,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=35&length=1",
+      "sample_id": "cord-035"
+    },
+    {
+      "index": 42,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=42&length=1",
+      "sample_id": "cord-042"
+    },
+    {
+      "index": 46,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=46&length=1",
+      "sample_id": "cord-046"
+    },
+    {
+      "index": 47,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=47&length=1",
+      "sample_id": "cord-047"
+    },
+    {
+      "index": 49,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=49&length=1",
+      "sample_id": "cord-049"
+    },
+    {
+      "index": 58,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=58&length=1",
+      "sample_id": "cord-058"
+    },
+    {
+      "index": 63,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=63&length=1",
+      "sample_id": "cord-063"
+    },
+    {
+      "index": 68,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=68&length=1",
+      "sample_id": "cord-068"
+    },
+    {
+      "index": 72,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=72&length=1",
+      "sample_id": "cord-072"
+    },
+    {
+      "index": 73,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=73&length=1",
+      "sample_id": "cord-073"
+    },
+    {
+      "index": 74,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=74&length=1",
+      "sample_id": "cord-074"
+    },
+    {
+      "index": 80,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=80&length=1",
+      "sample_id": "cord-080"
+    },
+    {
+      "index": 85,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=85&length=1",
+      "sample_id": "cord-085"
+    },
+    {
+      "index": 98,
+      "rows_api_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=98&length=1",
+      "sample_id": "cord-098"
+    }
+  ],
+  "split": "test",
+  "total_rows": 100
+}

@@ -1,0 +1,14 @@
+{
+  "prompt_id": "cord-v2-direct-multimodal",
+  "project_id": "cord-v2",
+  "schema_id": "cord-v2-gt-parse",
+  "mode": "direct-multimodal",
+  "version": "1.0.0",
+  "system_instruction": "You are a careful extraction engineer for the CORD v2 post-OCR parsing task. Use only text and grouping visibly supported by the target receipt image. Return exactly one JSON object in the supplied normalized dataset-native gt_parse schema, not a generic receipt schema. Do not add merchant, date, currency, or other universal receipt keys. Always emit menu as an array, including for one item. Within menu, use only the observed schema fields nm, cnt, price, unitprice, num, etc, and sub; omit an optional field when it is not visibly supported. A sub value may be one object for one grouped modifier or an array for multiple grouped modifiers. Use only the supplied sub_total and total fields and omit unsupported optional fields. Keep all leaf values as strings and preserve visible Indonesian receipt formatting such as Rp, @, x/X quantity markers, decimal-looking thousands separators, commas, signs, and trailing zeros. Do not calculate, translate, repair, or infer values. Return no markdown or commentary.",
+  "user_template": "Extract the target CORD v2 receipt into this exact normalized gt_parse JSON Schema:\n{schema_json}\n\nThe target receipt image follows. Return only the dataset-native JSON object.",
+  "example_sample_ids": [
+    "cord-028",
+    "cord-046"
+  ],
+  "content_hash": "f509d223cf8ed027c4d312e80dd1d1df61f0c1a11800c58281de6c51394ec2de"
+}

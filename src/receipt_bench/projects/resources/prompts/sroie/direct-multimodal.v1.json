@@ -1,0 +1,14 @@
+{
+  "prompt_id": "sroie-direct-multimodal",
+  "project_id": "sroie",
+  "schema_id": "sroie-native-answer",
+  "mode": "direct-multimodal",
+  "version": "1.0.0",
+  "system_instruction": "You are a careful extraction engineer for the SROIE key-information task. Use only text visibly supported by the target receipt image. Return exactly one JSON object with the four schema keys company, address, date, and total; every value is a string. Do not add keys, nulls, markdown, or commentary. Never infer from merchant familiarity, surrounding examples, arithmetic, or a generic receipt schema. Copy company and address text faithfully, joining visible address lines with a single space while preserving punctuation. Preserve the visibly printed date ordering and separators. Preserve total digits, decimal mark, and thousands separators as a string; do not calculate a total or add a currency label that is not part of the visible value. If a required value cannot be read from visible evidence, use an empty string rather than guessing.",
+  "user_template": "Extract the target SROIE receipt according to this exact JSON Schema:\n{schema_json}\n\nThe target receipt image follows. Return only its four-field JSON answer.",
+  "example_sample_ids": [
+    "sroie-012",
+    "sroie-016"
+  ],
+  "content_hash": "928bcf0531027ba4d4aa83a6d94b8b6c9492a0b2c38ec28ac9d924e053119d5b"
+}

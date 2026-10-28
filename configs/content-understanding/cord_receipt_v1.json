@@ -1,0 +1,152 @@
+{
+  "description": "Extract the pinned CORD v2 receipt fields into the dataset-native benchmark schema.",
+  "baseAnalyzerId": "prebuilt-document",
+  "models": {
+    "completion": "gpt-5.4-mini"
+  },
+  "config": {
+    "returnDetails": true,
+    "enableFormula": false,
+    "estimateFieldSourceAndConfidence": true,
+    "tableFormat": "html"
+  },
+  "fieldSchema": {
+    "fields": {
+      "menu": {
+        "type": "array",
+        "method": "extract",
+        "description": "Purchased menu items in receipt order. Preserve the visibly printed strings without calculation or translation.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "nm": {
+              "type": "string",
+              "method": "extract",
+              "description": "Item name exactly as printed."
+            },
+            "cnt": {
+              "type": "string",
+              "method": "extract",
+              "description": "Item quantity string exactly as printed."
+            },
+            "price": {
+              "type": "string",
+              "method": "extract",
+              "description": "Item line price exactly as printed."
+            },
+            "unitprice": {
+              "type": "string",
+              "method": "extract",
+              "description": "Item unit price exactly as printed."
+            },
+            "num": {
+              "type": "string",
+              "method": "extract",
+              "description": "Printed item number or sequence identifier."
+            },
+            "etc": {
+              "type": "string",
+              "method": "extract",
+              "description": "Other text attached to this menu item."
+            },
+            "sub": {
+              "type": "array",
+              "method": "extract",
+              "description": "Modifiers or sub-items grouped under this menu item.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "nm": {
+                    "type": "string",
+                    "method": "extract",
+                    "description": "Modifier or sub-item name exactly as printed."
+                  },
+                  "price": {
+                    "type": "string",
+                    "method": "extract",
+                    "description": "Modifier or sub-item price exactly as printed."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "sub_total": {
+        "type": "object",
+        "method": "extract",
+        "description": "Receipt subtotal, discount, tax, service, and other summary values.",
+        "properties": {
+          "subtotal_price": {
+            "type": "string",
+            "method": "extract",
+            "description": "Subtotal exactly as printed."
+          },
+          "discount_price": {
+            "type": "string",
+            "method": "extract",
+            "description": "Discount amount exactly as printed."
+          },
+          "tax_price": {
+            "type": "string",
+            "method": "extract",
+            "description": "Tax amount exactly as printed."
+          },
+          "service_price": {
+            "type": "string",
+            "method": "extract",
+            "description": "Service charge exactly as printed."
+          },
+          "etc": {
+            "type": "array",
+            "method": "extract",
+            "description": "Other printed subtotal or summary values.",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "total": {
+        "type": "object",
+        "method": "extract",
+        "description": "Final receipt totals and payment amounts.",
+        "properties": {
+          "total_price": {
+            "type": "string",
+            "method": "extract",
+            "description": "Final total exactly as printed."
+          },
+          "cashprice": {
+            "type": "array",
+            "method": "extract",
+            "description": "One or more cash payment values exactly as printed.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "changeprice": {
+            "type": "string",
+            "method": "extract",
+            "description": "Change amount exactly as printed."
+          },
+          "creditcardprice": {
+            "type": "string",
+            "method": "extract",
+            "description": "Credit-card payment amount exactly as printed."
+          },
+          "menuqty_cnt": {
+            "type": "string",
+            "method": "extract",
+            "description": "Printed total menu quantity."
+          },
+          "menutype_cnt": {
+            "type": "string",
+            "method": "extract",
+            "description": "Printed total count of menu item types."
+          }
+        }
+      }
+    }
+  }
+}

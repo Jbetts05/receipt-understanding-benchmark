@@ -1,0 +1,50 @@
+# Dataset acquisition config for the approved benchmark mix: 80 SROIE + 20 CORD v2.
+#
+# Loaded and strictly validated by receipt_bench.datasets.config.DatasetsConfig.
+# See data/LICENSES.md for licensing/provenance caveats before redistributing
+# anything derived from these sources.
+
+manifest_path: data/manifests/benchmark.jsonl
+# Gitignored (see .gitignore's `data/raw/` entry): downloaded images and cached
+# CORD ground-truth text are never committed.
+images_root: data/raw/images
+
+sroie:
+  repo: zzzDavid/ICDAR-2019-SROIE
+  # Pinned commit for reproducibility; do not float this to a branch/tag.
+  commit: 27be4271b251c256f695acbade9a801bffe85994
+  count: 80 # deterministic ids 000-079
+  id_width: 3
+  url_template: "https://raw.githubusercontent.com/{repo}/{commit}/data/{kind}/{sample_id}.{ext}"
+  # This mirror's data/ folder is the labeled trainval-style data (626 files),
+  # not the official ICDAR 2019 SROIE 400-image held-out test split (which was
+  # never publicly released with ground truth). split is therefore "trainval",
+  # never "test": these images may overlap with data used to train or
+  # evaluate other public OCR/LLM models, so benchmark results here carry a
+  # real train/eval leakage risk and must not be presented as a clean
+  # held-out test set. See data/LICENSES.md.
+  split: trainval
+  license_note: >-
+    Official SROIE (ICDAR 2019) data is gated/research-only; this mirror's own
+    repository license does not necessarily relicense the underlying receipt
+    images or annotations. The project owner explicitly confirmed on 2026-08-30
+    that they hold redistribution permission for this experiment. See
+    data/LICENSES.md; downstream operators remain responsible for their own use.
+
+cord:
+  dataset: naver-clova-ix/cord-v2
+  # Pinned dataset revision for reproducibility.
+  revision: 7f0115a4b758a71d6473b8d085751692da2fef98
+  split: test
+  license: CC-BY-4.0
+  total_rows: 100
+  sample_count: 20
+  # random.Random(20260828).sample(range(100), 20), sorted. Validated on load
+  # against this exact recomputation -- see receipt_bench.datasets.config.
+  selection_seed: 20260828
+  selected_indices:
+    [3, 11, 15, 26, 28, 34, 35, 42, 46, 47, 49, 58, 63, 68, 72, 73, 74, 80, 85, 98]
+  # {offset} is the only template parameter; dataset/config/split are pinned
+  # inline per the approved fetch pattern (only selected rows, never parquet).
+  rows_api_template: >-
+    https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset={offset}&length=1

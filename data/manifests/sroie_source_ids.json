@@ -1,0 +1,728 @@
+{
+  "commit": "27be4271b251c256f695acbade9a801bffe85994",
+  "count": 80,
+  "repo": "zzzDavid/ICDAR-2019-SROIE",
+  "source_ids": [
+    {
+      "sample_id": "sroie-000",
+      "source_id": "000",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/000.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/000.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/000.json"
+      }
+    },
+    {
+      "sample_id": "sroie-001",
+      "source_id": "001",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/001.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/001.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/001.json"
+      }
+    },
+    {
+      "sample_id": "sroie-002",
+      "source_id": "002",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/002.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/002.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/002.json"
+      }
+    },
+    {
+      "sample_id": "sroie-003",
+      "source_id": "003",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/003.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/003.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/003.json"
+      }
+    },
+    {
+      "sample_id": "sroie-004",
+      "source_id": "004",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/004.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/004.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/004.json"
+      }
+    },
+    {
+      "sample_id": "sroie-005",
+      "source_id": "005",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/005.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/005.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/005.json"
+      }
+    },
+    {
+      "sample_id": "sroie-006",
+      "source_id": "006",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/006.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/006.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/006.json"
+      }
+    },
+    {
+      "sample_id": "sroie-007",
+      "source_id": "007",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/007.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/007.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/007.json"
+      }
+    },
+    {
+      "sample_id": "sroie-008",
+      "source_id": "008",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/008.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/008.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/008.json"
+      }
+    },
+    {
+      "sample_id": "sroie-009",
+      "source_id": "009",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/009.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/009.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/009.json"
+      }
+    },
+    {
+      "sample_id": "sroie-010",
+      "source_id": "010",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/010.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/010.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/010.json"
+      }
+    },
+    {
+      "sample_id": "sroie-011",
+      "source_id": "011",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/011.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/011.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/011.json"
+      }
+    },
+    {
+      "sample_id": "sroie-012",
+      "source_id": "012",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/012.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/012.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/012.json"
+      }
+    },
+    {
+      "sample_id": "sroie-013",
+      "source_id": "013",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/013.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/013.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/013.json"
+      }
+    },
+    {
+      "sample_id": "sroie-014",
+      "source_id": "014",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/014.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/014.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/014.json"
+      }
+    },
+    {
+      "sample_id": "sroie-015",
+      "source_id": "015",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/015.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/015.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/015.json"
+      }
+    },
+    {
+      "sample_id": "sroie-016",
+      "source_id": "016",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/016.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/016.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/016.json"
+      }
+    },
+    {
+      "sample_id": "sroie-017",
+      "source_id": "017",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/017.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/017.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/017.json"
+      }
+    },
+    {
+      "sample_id": "sroie-018",
+      "source_id": "018",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/018.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/018.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/018.json"
+      }
+    },
+    {
+      "sample_id": "sroie-019",
+      "source_id": "019",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/019.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/019.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/019.json"
+      }
+    },
+    {
+      "sample_id": "sroie-020",
+      "source_id": "020",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/020.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/020.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/020.json"
+      }
+    },
+    {
+      "sample_id": "sroie-021",
+      "source_id": "021",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/021.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/021.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/021.json"
+      }
+    },
+    {
+      "sample_id": "sroie-022",
+      "source_id": "022",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/022.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/022.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/022.json"
+      }
+    },
+    {
+      "sample_id": "sroie-023",
+      "source_id": "023",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/023.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/023.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/023.json"
+      }
+    },
+    {
+      "sample_id": "sroie-024",
+      "source_id": "024",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/024.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/024.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/024.json"
+      }
+    },
+    {
+      "sample_id": "sroie-025",
+      "source_id": "025",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/025.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/025.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/025.json"
+      }
+    },
+    {
+      "sample_id": "sroie-026",
+      "source_id": "026",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/026.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/026.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/026.json"
+      }
+    },
+    {
+      "sample_id": "sroie-027",
+      "source_id": "027",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/027.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/027.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/027.json"
+      }
+    },
+    {
+      "sample_id": "sroie-028",
+      "source_id": "028",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/028.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/028.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/028.json"
+      }
+    },
+    {
+      "sample_id": "sroie-029",
+      "source_id": "029",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/029.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/029.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/029.json"
+      }
+    },
+    {
+      "sample_id": "sroie-030",
+      "source_id": "030",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/030.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/030.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/030.json"
+      }
+    },
+    {
+      "sample_id": "sroie-031",
+      "source_id": "031",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/031.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/031.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/031.json"
+      }
+    },
+    {
+      "sample_id": "sroie-032",
+      "source_id": "032",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/032.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/032.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/032.json"
+      }
+    },
+    {
+      "sample_id": "sroie-033",
+      "source_id": "033",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/033.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/033.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/033.json"
+      }
+    },
+    {
+      "sample_id": "sroie-034",
+      "source_id": "034",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/034.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/034.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/034.json"
+      }
+    },
+    {
+      "sample_id": "sroie-035",
+      "source_id": "035",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/035.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/035.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/035.json"
+      }
+    },
+    {
+      "sample_id": "sroie-036",
+      "source_id": "036",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/036.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/036.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/036.json"
+      }
+    },
+    {
+      "sample_id": "sroie-037",
+      "source_id": "037",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/037.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/037.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/037.json"
+      }
+    },
+    {
+      "sample_id": "sroie-038",
+      "source_id": "038",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/038.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/038.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/038.json"
+      }
+    },
+    {
+      "sample_id": "sroie-039",
+      "source_id": "039",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/039.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/039.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/039.json"
+      }
+    },
+    {
+      "sample_id": "sroie-040",
+      "source_id": "040",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/040.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/040.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/040.json"
+      }
+    },
+    {
+      "sample_id": "sroie-041",
+      "source_id": "041",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/041.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/041.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/041.json"
+      }
+    },
+    {
+      "sample_id": "sroie-042",
+      "source_id": "042",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/042.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/042.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/042.json"
+      }
+    },
+    {
+      "sample_id": "sroie-043",
+      "source_id": "043",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/043.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/043.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/043.json"
+      }
+    },
+    {
+      "sample_id": "sroie-044",
+      "source_id": "044",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/044.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/044.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/044.json"
+      }
+    },
+    {
+      "sample_id": "sroie-045",
+      "source_id": "045",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/045.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/045.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/045.json"
+      }
+    },
+    {
+      "sample_id": "sroie-046",
+      "source_id": "046",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/046.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/046.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/046.json"
+      }
+    },
+    {
+      "sample_id": "sroie-047",
+      "source_id": "047",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/047.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/047.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/047.json"
+      }
+    },
+    {
+      "sample_id": "sroie-048",
+      "source_id": "048",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/048.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/048.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/048.json"
+      }
+    },
+    {
+      "sample_id": "sroie-049",
+      "source_id": "049",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/049.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/049.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/049.json"
+      }
+    },
+    {
+      "sample_id": "sroie-050",
+      "source_id": "050",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/050.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/050.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/050.json"
+      }
+    },
+    {
+      "sample_id": "sroie-051",
+      "source_id": "051",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/051.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/051.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/051.json"
+      }
+    },
+    {
+      "sample_id": "sroie-052",
+      "source_id": "052",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/052.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/052.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/052.json"
+      }
+    },
+    {
+      "sample_id": "sroie-053",
+      "source_id": "053",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/053.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/053.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/053.json"
+      }
+    },
+    {
+      "sample_id": "sroie-054",
+      "source_id": "054",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/054.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/054.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/054.json"
+      }
+    },
+    {
+      "sample_id": "sroie-055",
+      "source_id": "055",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/055.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/055.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/055.json"
+      }
+    },
+    {
+      "sample_id": "sroie-056",
+      "source_id": "056",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/056.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/056.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/056.json"
+      }
+    },
+    {
+      "sample_id": "sroie-057",
+      "source_id": "057",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/057.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/057.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/057.json"
+      }
+    },
+    {
+      "sample_id": "sroie-058",
+      "source_id": "058",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/058.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/058.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/058.json"
+      }
+    },
+    {
+      "sample_id": "sroie-059",
+      "source_id": "059",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/059.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/059.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/059.json"
+      }
+    },
+    {
+      "sample_id": "sroie-060",
+      "source_id": "060",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/060.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/060.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/060.json"
+      }
+    },
+    {
+      "sample_id": "sroie-061",
+      "source_id": "061",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/061.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/061.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/061.json"
+      }
+    },
+    {
+      "sample_id": "sroie-062",
+      "source_id": "062",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/062.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/062.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/062.json"
+      }
+    },
+    {
+      "sample_id": "sroie-063",
+      "source_id": "063",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/063.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/063.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/063.json"
+      }
+    },
+    {
+      "sample_id": "sroie-064",
+      "source_id": "064",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/064.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/064.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/064.json"
+      }
+    },
+    {
+      "sample_id": "sroie-065",
+      "source_id": "065",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/065.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/065.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/065.json"
+      }
+    },
+    {
+      "sample_id": "sroie-066",
+      "source_id": "066",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/066.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/066.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/066.json"
+      }
+    },
+    {
+      "sample_id": "sroie-067",
+      "source_id": "067",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/067.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/067.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/067.json"
+      }
+    },
+    {
+      "sample_id": "sroie-068",
+      "source_id": "068",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/068.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/068.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/068.json"
+      }
+    },
+    {
+      "sample_id": "sroie-069",
+      "source_id": "069",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/069.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/069.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/069.json"
+      }
+    },
+    {
+      "sample_id": "sroie-070",
+      "source_id": "070",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/070.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/070.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/070.json"
+      }
+    },
+    {
+      "sample_id": "sroie-071",
+      "source_id": "071",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/071.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/071.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/071.json"
+      }
+    },
+    {
+      "sample_id": "sroie-072",
+      "source_id": "072",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/072.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/072.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/072.json"
+      }
+    },
+    {
+      "sample_id": "sroie-073",
+      "source_id": "073",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/073.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/073.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/073.json"
+      }
+    },
+    {
+      "sample_id": "sroie-074",
+      "source_id": "074",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/074.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/074.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/074.json"
+      }
+    },
+    {
+      "sample_id": "sroie-075",
+      "source_id": "075",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/075.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/075.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/075.json"
+      }
+    },
+    {
+      "sample_id": "sroie-076",
+      "source_id": "076",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/076.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/076.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/076.json"
+      }
+    },
+    {
+      "sample_id": "sroie-077",
+      "source_id": "077",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/077.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/077.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/077.json"
+      }
+    },
+    {
+      "sample_id": "sroie-078",
+      "source_id": "078",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/078.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/078.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/078.json"
+      }
+    },
+    {
+      "sample_id": "sroie-079",
+      "source_id": "079",
+      "urls": {
+        "box": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/box/079.csv",
+        "img": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/img/079.jpg",
+        "key": "https://raw.githubusercontent.com/zzzDavid/ICDAR-2019-SROIE/27be4271b251c256f695acbade9a801bffe85994/data/key/079.json"
+      }
+    }
+  ],
+  "split": "trainval"
+}

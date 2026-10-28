@@ -1,0 +1,126 @@
+schema_path: schemas/expense-receipt.schema.json
+dataset_manifest: data/manifests/benchmark.jsonl
+output_root: results/runs
+concurrency: 1
+warmup_requests: 2
+random_seed: 20260828
+retry:
+  max_attempts: 3
+  initial_delay_seconds: 1
+  max_delay_seconds: 30
+solutions:
+  - id: gpt-5.6-sol
+    kind: direct
+    deployment: receipt-gpt-56-sol
+    model: gpt-5.6-sol
+    api: azure-openai
+    reasoning_effort: low
+  - id: gpt-5.6-terra
+    kind: direct
+    deployment: receipt-gpt-56-terra
+    model: gpt-5.6-terra
+    api: azure-openai
+    reasoning_effort: low
+  - id: gpt-5.6-luna
+    kind: direct
+    deployment: receipt-gpt-56-luna
+    model: gpt-5.6-luna
+    api: azure-openai
+    reasoning_effort: low
+  - id: gpt-5.4-mini
+    kind: direct
+    deployment: receipt-gpt-54-mini
+    model: gpt-5.4-mini
+    api: azure-openai
+    reasoning_effort: low
+  - id: gpt-5.2
+    kind: direct
+    deployment: receipt-gpt-52-cu
+    model: gpt-5.2
+    api: azure-openai
+    reasoning_effort: low
+  - id: grok-4.6
+    kind: direct
+    deployment: receipt-grok-46
+    model: grok-4.6
+    api: foundry-openai
+    lifecycle: preview
+  - id: mistral-large-3
+    kind: direct
+    deployment: receipt-mistral-large-3
+    model: Mistral-Large-3
+    api: foundry-openai
+  - id: content-understanding-custom
+    kind: native
+    api: content-understanding
+    analyzer_id: expense_receipt_v1
+    project_analyzers:
+      sroie: expense_receipt_v1
+      cord-v2: cord_receipt_v1
+  - id: content-understanding-prebuilt-receipt
+    kind: native
+    api: content-understanding
+    analyzer_id: prebuilt-receipt
+  - id: document-intelligence-receipt
+    kind: native
+    api: document-intelligence
+    model: prebuilt-receipt
+  - id: mistral-document-ai-2512
+    kind: ocr_pipeline
+    deployment: receipt-mistral-document-ai
+    model: mistral-document-ai-2512
+    api: mistral-ocr
+    normalizer: gpt-5.6-luna
+  - id: mistral-ocr-4.0
+    kind: ocr_pipeline
+    deployment: receipt-mistral-ocr-4
+    model: mistral-ocr-4-0
+    api: mistral-ocr
+    lifecycle: preview
+    normalizer: gpt-5.6-luna
+  - id: azure-vision-read
+    kind: ocr_pipeline
+    api: azure-vision
+    normalizer: gpt-5.6-luna
+  - id: content-understanding-read
+    kind: ocr_pipeline
+    api: content-understanding
+    analyzer_id: prebuilt-read
+    normalizer: gpt-5.6-luna
+  - id: content-understanding-layout
+    kind: ocr_pipeline
+    api: content-understanding
+    analyzer_id: prebuilt-layout
+    normalizer: gpt-5.6-luna
+  - id: mistral-document-ai-2512-text
+    kind: ocr_text
+    deployment: receipt-mistral-document-ai
+    model: mistral-document-ai-2512
+    api: mistral-ocr
+  - id: mistral-ocr-4.0-text
+    kind: ocr_text
+    deployment: receipt-mistral-ocr-4
+    model: mistral-ocr-4-0
+    api: mistral-ocr
+    lifecycle: preview
+  - id: azure-vision-read-text
+    kind: ocr_text
+    api: azure-vision
+  - id: content-understanding-read-text
+    kind: ocr_text
+    api: content-understanding
+    analyzer_id: prebuilt-read
+  - id: content-understanding-layout-text
+    kind: ocr_text
+    api: content-understanding
+    analyzer_id: prebuilt-layout
+  - id: content-understanding-prebuilt-receipt-luna
+    kind: native_pipeline
+    api: content-understanding
+    analyzer_id: prebuilt-receipt
+    normalizer: gpt-5.6-luna
+  - id: document-intelligence-receipt-luna
+    kind: native_pipeline
+    api: document-intelligence
+    model: prebuilt-receipt
+    normalizer: gpt-5.6-luna

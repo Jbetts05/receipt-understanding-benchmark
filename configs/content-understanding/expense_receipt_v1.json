@@ -1,0 +1,188 @@
+{
+  "description": "Extract employee expense receipt data into the benchmark schema.",
+  "baseAnalyzerId": "prebuilt-document",
+  "models": {
+    "completion": "gpt-5.4-mini"
+  },
+  "config": {
+    "returnDetails": true,
+    "enableFormula": false,
+    "estimateFieldSourceAndConfidence": true,
+    "tableFormat": "html"
+  },
+  "fieldSchema": {
+    "fields": {
+      "Merchant": {
+        "type": "object",
+        "method": "extract",
+        "description": "The merchant that issued the receipt.",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "method": "extract",
+            "description": "Merchant or trading name."
+          },
+          "Address": {
+            "type": "string",
+            "method": "extract",
+            "description": "Complete merchant address."
+          },
+          "Phone": {
+            "type": "string",
+            "method": "extract",
+            "description": "Merchant phone number."
+          },
+          "TaxId": {
+            "type": "string",
+            "method": "extract",
+            "description": "Merchant VAT, GST, or tax registration identifier."
+          }
+        }
+      },
+      "Transaction": {
+        "type": "object",
+        "method": "extract",
+        "description": "Receipt transaction metadata.",
+        "properties": {
+          "Date": {
+            "type": "date",
+            "method": "extract",
+            "description": "Transaction date."
+          },
+          "Time": {
+            "type": "time",
+            "method": "extract",
+            "description": "Transaction time."
+          },
+          "ReceiptNumber": {
+            "type": "string",
+            "method": "extract",
+            "description": "Receipt, order, invoice, or transaction identifier."
+          },
+          "Currency": {
+            "type": "string",
+            "method": "extract",
+            "description": "ISO 4217 currency code supported by visible evidence."
+          },
+          "Country": {
+            "type": "string",
+            "method": "extract",
+            "description": "Country where the transaction occurred."
+          }
+        }
+      },
+      "Amounts": {
+        "type": "object",
+        "method": "extract",
+        "description": "Receipt monetary totals without currency symbols.",
+        "properties": {
+          "Subtotal": {
+            "type": "number",
+            "method": "extract",
+            "description": "Subtotal before discounts, tax, and tip."
+          },
+          "Discount": {
+            "type": "number",
+            "method": "extract",
+            "description": "Total discount amount."
+          },
+          "Tax": {
+            "type": "number",
+            "method": "extract",
+            "description": "Total tax, VAT, or GST."
+          },
+          "Tip": {
+            "type": "number",
+            "method": "extract",
+            "description": "Tip or gratuity."
+          },
+          "Total": {
+            "type": "number",
+            "method": "extract",
+            "description": "Final amount paid or payable."
+          }
+        }
+      },
+      "PaymentMethods": {
+        "type": "array",
+        "method": "extract",
+        "description": "Payment methods visibly recorded on the receipt.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "Method": {
+              "type": "string",
+              "method": "extract",
+              "description": "Payment method such as cash, credit card, or debit card."
+            },
+            "Amount": {
+              "type": "number",
+              "method": "extract",
+              "description": "Amount charged to this payment method."
+            },
+            "CardLast4": {
+              "type": "string",
+              "method": "extract",
+              "description": "Last four card digits when visibly present."
+            }
+          }
+        }
+      },
+      "ReceiptType": {
+        "type": "string",
+        "method": "extract",
+        "description": "Visible receipt category such as meal, hotel, fuel, parking, or retail."
+      },
+      "LineItems": {
+        "type": "array",
+        "method": "extract",
+        "description": "Purchased goods and services in receipt order.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "Description": {
+              "type": "string",
+              "method": "extract",
+              "description": "Item description."
+            },
+            "ProductCode": {
+              "type": "string",
+              "method": "extract",
+              "description": "SKU or product code."
+            },
+            "Quantity": {
+              "type": "number",
+              "method": "extract",
+              "description": "Purchased quantity."
+            },
+            "Unit": {
+              "type": "string",
+              "method": "extract",
+              "description": "Quantity unit."
+            },
+            "UnitPrice": {
+              "type": "number",
+              "method": "extract",
+              "description": "Price for one unit."
+            },
+            "Discount": {
+              "type": "number",
+              "method": "extract",
+              "description": "Discount applied to the item."
+            },
+            "Tax": {
+              "type": "number",
+              "method": "extract",
+              "description": "Tax applied to the item."
+            },
+            "TotalPrice": {
+              "type": "number",
+              "method": "extract",
+              "description": "Final line total."
+            }
+          }
+        }
+      }
+    }
+  }
+}

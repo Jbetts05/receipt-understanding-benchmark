@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Jbetts05/receipt-understanding-benchmark/schemas/cord.schema.json",
+  "title": "CORD v2 normalized gt_parse answer",
+  "description": "The dataset-native gt_parse fields observed in the fixed CORD v2 selection. The native singleton-or-array menu is normalized to an array.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "menu",
+    "total"
+  ],
+  "properties": {
+    "menu": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/menuItem"
+      }
+    },
+    "sub_total": {
+      "$ref": "#/$defs/subTotal"
+    },
+    "total": {
+      "$ref": "#/$defs/total"
+    }
+  },
+  "$defs": {
+    "subItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nm"
+      ],
+      "properties": {
+        "nm": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        }
+      }
+    },
+    "subItems": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/subItem"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/subItem"
+          }
+        }
+      ]
+    },
+    "menuItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nm"
+      ],
+      "properties": {
+        "nm": {
+          "type": "string"
+        },
+        "cnt": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        },
+        "unitprice": {
+          "type": "string"
+        },
+        "num": {
+          "type": "string"
+        },
+        "etc": {
+          "type": "string"
+        },
+        "sub": {
+          "$ref": "#/$defs/subItems"
+        }
+      }
+    },
+    "subTotal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subtotal_price": {
+          "type": "string"
+        },
+        "discount_price": {
+          "type": "string"
+        },
+        "tax_price": {
+          "type": "string"
+        },
+        "service_price": {
+          "type": "string"
+        },
+        "etc": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "total": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_price"
+      ],
+      "properties": {
+        "total_price": {
+          "type": "string"
+        },
+        "cashprice": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "changeprice": {
+          "type": "string"
+        },
+        "creditcardprice": {
+          "type": "string"
+        },
+        "menuqty_cnt": {
+          "type": "string"
+        },
+        "menutype_cnt": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

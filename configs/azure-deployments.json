@@ -1,0 +1,82 @@
+[
+  {
+    "deploymentName": "receipt-gpt-56-sol",
+    "modelName": "gpt-5.6-sol",
+    "modelVersion": "2026-07-09",
+    "modelFormat": "OpenAI",
+    "skuName": "GlobalStandard",
+    "capacity": 1
+  },
+  {
+    "deploymentName": "receipt-gpt-56-terra",
+    "modelName": "gpt-5.6-terra",
+    "modelVersion": "2026-07-09",
+    "modelFormat": "OpenAI",
+    "skuName": "GlobalStandard",
+    "capacity": 1
+  },
+  {
+    "deploymentName": "receipt-gpt-56-luna",
+    "modelName": "gpt-5.6-luna",
+    "modelVersion": "2026-07-09",
+    "modelFormat": "OpenAI",
+    "skuName": "GlobalStandard",
+    "capacity": 1
+  },
+  {
+    "deploymentName": "receipt-gpt-54-mini",
+    "modelName": "gpt-5.4-mini",
+    "modelVersion": "2026-03-17",
+    "modelFormat": "OpenAI",
+    "skuName": "GlobalStandard",
+    "capacity": 1
+  },
+  {
+    "deploymentName": "receipt-gpt-52-cu",
+    "modelName": "gpt-5.2",
+    "modelVersion": "2025-12-11",
+    "modelFormat": "OpenAI",
+    "skuName": "GlobalStandard",
+    "capacity": 1
+  },
+  {
+    "deploymentName": "receipt-embedding-3-large",
+    "modelName": "text-embedding-3-large",
+    "modelVersion": "1",
+    "modelFormat": "OpenAI",
+    "skuName": "GlobalStandard",
+    "capacity": 1
+  },
+  {
+    "deploymentName": "receipt-grok-46",
+    "modelName": "grok-4.6",
+    "modelVersion": "1",
+    "modelFormat": "xAI",
+    "skuName": "GlobalStandard",
+    "capacity": 1
+  },
+  {
+    "deploymentName": "receipt-mistral-large-3",
+    "modelName": "Mistral-Large-3",
+    "modelVersion": "1",
+    "modelFormat": "Mistral AI",
+    "skuName": "GlobalStandard",
+    "capacity": 1
+  },
+  {
+    "deploymentName": "receipt-mistral-document-ai",
+    "modelName": "mistral-document-ai-2512",
+    "modelVersion": "1",
+    "modelFormat": "Mistral AI",
+    "skuName": "GlobalStandard",
+    "capacity": 1
+  },
+  {
+    "deploymentName": "receipt-mistral-ocr-4",
+    "modelName": "mistral-ocr-4-0",
+    "modelVersion": "1",
+    "modelFormat": "Mistral AI",
+    "skuName": "GlobalStandard",
+    "capacity": 1
+  }
+]

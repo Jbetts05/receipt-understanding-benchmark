@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Jbetts05/receipt-understanding-benchmark/schemas/expense-receipt.schema.json",
+  "title": "Canonical expense receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "merchant",
+    "transaction",
+    "amounts",
+    "payment_methods",
+    "receipt_type",
+    "line_items"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "merchant": {
+      "$ref": "#/$defs/merchant"
+    },
+    "transaction": {
+      "$ref": "#/$defs/transaction"
+    },
+    "amounts": {
+      "$ref": "#/$defs/amounts"
+    },
+    "payment_methods": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/paymentMethod"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "receipt_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "line_items": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/lineItem"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "nullableString": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nullableNumber": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "merchant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "address",
+        "phone",
+        "tax_id"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "address": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "phone": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "tax_id": {
+          "$ref": "#/$defs/nullableString"
+        }
+      }
+    },
+    "transaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "date",
+        "time",
+        "receipt_number",
+        "currency",
+        "country"
+      ],
+      "properties": {
+        "date": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "time": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "receipt_number": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "currency": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "country": {
+          "$ref": "#/$defs/nullableString"
+        }
+      }
+    },
+    "amounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subtotal",
+        "discount",
+        "tax",
+        "tip",
+        "total"
+      ],
+      "properties": {
+        "subtotal": {
+          "$ref": "#/$defs/nullableNumber"
+        },
+        "discount": {
+          "$ref": "#/$defs/nullableNumber"
+        },
+        "tax": {
+          "$ref": "#/$defs/nullableNumber"
+        },
+        "tip": {
+          "$ref": "#/$defs/nullableNumber"
+        },
+        "total": {
+          "$ref": "#/$defs/nullableNumber"
+        }
+      }
+    },
+    "paymentMethod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "amount",
+        "card_last4"
+      ],
+      "properties": {
+        "method": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "amount": {
+          "$ref": "#/$defs/nullableNumber"
+        },
+        "card_last4": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^\\d{4}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "lineItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "description",
+        "product_code",
+        "quantity",
+        "unit",
+        "unit_price",
+        "discount",
+        "tax",
+        "total_price"
+      ],
+      "properties": {
+        "description": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "product_code": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "quantity": {
+          "$ref": "#/$defs/nullableNumber"
+        },
+        "unit": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "unit_price": {
+          "$ref": "#/$defs/nullableNumber"
+        },
+        "discount": {
+          "$ref": "#/$defs/nullableNumber"
+        },
+        "tax": {
+          "$ref": "#/$defs/nullableNumber"
+        },
+        "total_price": {
+          "$ref": "#/$defs/nullableNumber"
+        }
+      }
+    }
+  }
+}

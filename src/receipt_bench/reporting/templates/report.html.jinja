@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Receipt Understanding Benchmark Report — {{ run_id }}</title>
+<script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("scoutTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --cp-bg: #f7f4ef;
+  --cp-bg-elevated: #fcfbf8;
+  --cp-surface: #ffffff;
+  --cp-surface-soft: #f5f5f5;
+  --cp-border: #dedede;
+  --cp-border-strong: #919191;
+  --cp-text: #242424;
+  --cp-text-muted: #5c5c5c;
+  --cp-text-soft: #6f6f6f;
+  --cp-accent: #b11f4b;
+  --cp-accent-hover: #9a1a41;
+  --cp-accent-soft: rgba(177, 31, 75, 0.08);
+  --cp-accent-fg: #ffffff;
+  --cp-success: #16a34a;
+  --cp-danger: #dc2626;
+  --cp-warning: #f59e0b;
+  --cp-link: #0078d4;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+  --cp-overlay: rgba(255, 255, 255, 0.8);
+  --cp-panel: rgba(255, 255, 255, 0.86);
+  --cp-panel-strong: rgba(255, 255, 255, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.55);
+  --cp-highlight: rgba(177, 31, 75, 0.12);
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --cp-bg: #3d3b3a;
+  --cp-bg-elevated: #343231;
+  --cp-surface: #292929;
+  --cp-surface-soft: #2e2e2e;
+  --cp-border: #474747;
+  --cp-border-strong: #5f5f5f;
+  --cp-text: #dedede;
+  --cp-text-muted: #919191;
+  --cp-text-soft: #b0b0b0;
+  --cp-accent: #fd8ea1;
+  --cp-accent-hover: #fb7b91;
+  --cp-accent-soft: rgba(253, 142, 161, 0.14);
+  --cp-accent-fg: #1a1a1a;
+  --cp-success: #4ade80;
+  --cp-danger: #f87171;
+  --cp-warning: #fbbf24;
+  --cp-link: #4da6ff;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  --cp-overlay: rgba(41, 41, 41, 0.88);
+  --cp-panel: rgba(41, 41, 41, 0.72);
+  --cp-panel-strong: rgba(41, 41, 41, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.04);
+  --cp-highlight: rgba(253, 142, 161, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cp-bg);
+  color: var(--cp-text);
+  font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+code {
+  font-family: Consolas, "Courier New", Courier, monospace;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cp-accent);
+  outline-offset: 2px;
+}
+
+header {
+  padding: 28px 32px 24px;
+  border-bottom: 1px solid var(--cp-border);
+  background: var(--cp-bg-elevated);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--cp-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+header h1 {
+  margin: 0;
+  color: var(--cp-text);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+
+.purpose {
+  max-width: 760px;
+  margin: 8px 0 0;
+  color: var(--cp-text-muted);
+}
+
+.run-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  color: var(--cp-text);
+  font-size: 0.9rem;
+}
+
+.run-meta strong {
+  font-size: 1rem;
+}
+
+.meta-separator {
+  color: var(--cp-border-strong);
+}
+
+.provenance {
+  margin: 8px 0 0;
+  color: var(--cp-text-muted);
+  font-size: 0.82rem;
+}
+
+.provenance code {
+  color: var(--cp-text);
+}
+
+.header-caveat {
+  max-width: 920px;
+  margin: 16px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--cp-accent);
+  background: var(--cp-accent-soft);
+  color: var(--cp-text-muted);
+  font-size: 0.82rem;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 32px 64px;
+}
+
+section {
+  margin-bottom: 36px;
+}
+
+section h2 {
+  margin: 0 0 8px;
+  color: var(--cp-text);
+  font-size: 1.2rem;
+}
+
+section h3 {
+  color: var(--cp-text);
+}
+
+.note {
+  margin: 0 0 12px;
+  color: var(--cp-text-soft);
+  font-size: 0.85rem;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.highlight-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--cp-border);
+  border-radius: 16px;
+  background: var(--cp-surface);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.14);
+}
+
+.highlight-card h3 {
+  min-height: 2.5em;
+  margin: 0;
+  color: var(--cp-text-muted);
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.highlight-value {
+  margin: 8px 0 2px;
+  color: var(--cp-accent);
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.highlight-solution {
+  margin: 6px 0 0;
+  color: var(--cp-text);
+  font-size: 0.88rem;
+  overflow-wrap: anywhere;
+}
+
+.highlight-description {
+  margin: 8px 0 0;
+  color: var(--cp-text-soft);
+  font-size: 0.75rem;
+}
+
+.definition-panel {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+  padding: 12px 16px;
+  border: 1px solid var(--cp-border);
+  border-radius: 0.625rem;
+  background: var(--cp-surface-soft);
+}
+
+.definition-panel p {
+  margin: 0;
+  color: var(--cp-text-muted);
+  font-size: 0.85rem;
+}
+
+.definition-panel strong {
+  color: var(--cp-text);
+}
+
+.card {
+  overflow-x: auto;
+  border: 1px solid var(--cp-border);
+  border-radius: 16px;
+  background: var(--cp-surface);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.14);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+caption {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+thead th {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--cp-border);
+  background: var(--cp-surface-soft);
+  color: var(--cp-text-muted);
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--cp-border);
+  white-space: nowrap;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+#comparison-table {
+  min-width: 760px;
+}
+
+#comparison-table tbody tr:hover {
+  background: var(--cp-accent-soft);
+}
+
+.solution-cell {
+  min-width: 220px;
+  white-space: normal;
+}
+
+.solution-name {
+  display: block;
+  color: var(--cp-text);
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.solution-meta {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 4px;
+  color: var(--cp-text-soft);
+  font-size: 0.72rem;
+}
+
+.metadata-item {
+  padding: 1px 5px;
+  border: 1px solid var(--cp-border);
+  border-radius: 0.625rem;
+  background: var(--cp-surface-soft);
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 0.625rem;
+  background: var(--cp-accent-soft);
+  font-size: 0.72rem;
+  font-weight: 650;
+}
+
+.badge-ok { color: var(--cp-success); }
+.badge-warn { color: var(--cp-warning); }
+.badge-bad { color: var(--cp-danger); }
+.badge-preview { color: var(--cp-warning); background: var(--cp-accent-soft); }
+.badge-ga { color: var(--cp-text-muted); background: var(--cp-surface-soft); }
+
+.advanced-analysis {
+  overflow: hidden;
+  border: 1px solid var(--cp-border-strong);
+  border-radius: 16px;
+  background: var(--cp-bg-elevated);
+}
+
+.advanced-analysis > summary {
+  padding: 16px 18px;
+  color: var(--cp-text);
+  font-size: 1.05rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.advanced-analysis > summary::marker {
+  color: var(--cp-accent);
+}
+
+.summary-hint {
+  display: block;
+  margin: 3px 0 0 20px;
+  color: var(--cp-text-soft);
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+.advanced-analysis[open] > summary {
+  border-bottom: 1px solid var(--cp-border);
+}
+
+.advanced-content {
+  padding: 20px 18px 4px;
+}
+
+.advanced-content section {
+  margin-bottom: 36px;
+}
+
+.advanced-content .card table {
+  min-width: max-content;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.filters input,
+.filters select {
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 1px solid var(--cp-border);
+  border-radius: 0.625rem;
+  background: var(--cp-surface);
+  color: var(--cp-text);
+  font-size: 0.85rem;
+}
+
+.hist-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 4px 0;
+}
+
+.hist-label {
+  width: 150px;
+  flex-shrink: 0;
+  color: var(--cp-text-muted);
+  font-size: 0.75rem;
+}
+
+.hist-bar-track {
+  flex: 1;
+  height: 12px;
+  overflow: hidden;
+  border-radius: 0.625rem;
+  background: var(--cp-surface-soft);
+}
+
+.hist-bar-fill {
+  height: 100%;
+  background: var(--cp-accent);
+}
+
+.hist-count {
+  width: 32px;
+  color: var(--cp-text-muted);
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+.solution-block {
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--cp-border);
+  border-radius: 16px;
+  background: var(--cp-surface);
+}
+
+.solution-block h3 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.empty-state {
+  color: var(--cp-text-soft);
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+footer {
+  padding: 24px;
+  color: var(--cp-text-soft);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .highlights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 20px 16px;
+  }
+
+  main {
+    padding: 20px 16px 48px;
+  }
+
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-card h3 {
+    min-height: 0;
+  }
+
+  .advanced-content {
+    padding: 16px 12px 2px;
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <p class="eyebrow">Decision view</p>
+    <h1>Receipt understanding benchmark</h1>
+    <p class="purpose">
+      A controlled comparison of how accurately, reliably, quickly, and
+      cost-effectively each configured solution extracts labeled receipt data.
+    </p>
+    <div class="run-meta" aria-label="Benchmark size">
+      <span><strong>{{ receipt_count }}</strong> receipts</span>
+      <span class="meta-separator" aria-hidden="true">&middot;</span>
+      <span><strong>{{ solution_count }}</strong> solutions</span>
+    </div>
+    <p class="provenance">
+      Source run ID / provenance: <code>{{ run_id }}</code>
+      &middot; generated <time datetime="{{ generated_at }}">{{ generated_at }}</time>
+    </p>
+    <p class="header-caveat" id="public-data-caveat">
+      <strong>Public-data caveat:</strong> these results use previously published
+      receipt datasets, including SROIE and CORD. They show measured performance
+      on this benchmark, not guaranteed performance on unseen private receipts.
+    </p>
+  </div>
+</header>
+<main>
+  <section id="highlights-section" aria-labelledby="highlights-heading">
+    <h2 id="highlights-heading">Measured highlights</h2>
+    <p class="note">
+      Each card isolates one objective measure on this benchmark. Measurements
+      are not combined across quality, speed, reliability, and cost.
+    </p>
+    <div class="highlights-grid">
+      {% for card in highlight_cards %}
+      <article
+        class="highlight-card"
+        data-metric="{{ card.metric }}"
+        data-highlight-count="{{ card.winners | length }}"
+      >
+        <h3>{{ card.title }}</h3>
+        <p class="highlight-value">{{ card.display }}</p>
+        {% if card.winners | length == 1 %}
+        <p class="highlight-solution">
+          <strong>On this benchmark:</strong> {{ card.winners[0] }}
+        </p>
+        {% elif card.winners | length <= 3 and card.winners | length > 1 %}
+        <p class="highlight-solution">
+          <strong>Tie on this benchmark:</strong> {{ card.winners | join(", ") }}
+        </p>
+        {% elif card.winners | length > 3 %}
+        <p class="highlight-solution">
+          <strong>Tie on this benchmark:</strong> {{ card.winners | length }} solutions
+          share this value. See the comparison table.
+        </p>
+        {% else %}
+        <p class="highlight-solution">No measured value on this benchmark.</p>
+        {% endif %}
+        <p class="highlight-description">{{ card.description }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="comparison-section" aria-labelledby="comparison-heading">
+    <h2 id="comparison-heading">Compare all solutions</h2>
+    <p class="note">
+      Initially sorted by overall quality, highest measured first. This report
+      does not compute a composite score, rank solutions, or declare a winner.
+    </p>
+    <div class="definition-panel">
+      <p id="quality-definition">
+        <strong>Overall quality</strong> is the mean per-receipt field F1 over
+        only labeled golden answers. Unparseable or failed outputs score zero,
+        each receipt has equal weight, and strict schema compliance is not a
+        gate for answer quality.
+      </p>
+      <p id="fully-correct-definition">
+        <strong>Fully correct</strong> is binary per receipt: every labeled gold
+        field must be correct. Its denominator is all attempted receipts.
+      </p>
+    </div>
+    <div class="card">
+      <table
+        id="comparison-table"
+        aria-describedby="quality-definition fully-correct-definition"
+      >
+        <caption class="sr-only">
+          Decision-oriented comparison of every benchmark solution
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col" title="Configured solution and its lifecycle, kind, and model.">Solution</th>
+            <th scope="col" title="Mean receipt-level field F1 over labeled golden answers.">Overall quality</th>
+            <th scope="col" title="Share of attempted receipts that produced a valid, parseable output.">Valid outputs</th>
+            <th scope="col" title="Share of all attempted receipts with every labeled gold field correct.">Fully correct receipts</th>
+            <th scope="col" title="Median measured end-to-end response time.">Median time</th>
+            <th scope="col" title="Mean priced cost per receipt; unavailable prices are excluded.">Cost/receipt</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <details id="advanced-analysis" class="advanced-analysis">
+    <summary>
+      Advanced analysis
+      <span class="summary-hint">
+        Full metrics, confidence intervals, components, fields, distributions,
+        retries, warmups, and methodology
+      </span>
+    </summary>
+    <div class="advanced-content">
+      <section id="methodology-section">
+        <h2>Methodology and interpretation</h2>
+        <p class="note">
+          Run {{ run_id }} contains {{ solution_count }} solutions,
+          {{ receipt_count }} receipts per fully evaluated solution, and
+          {{ field_count }} dataset/language/field aggregate rows.
+        </p>
+        <p class="note" id="methodology-caveat">
+          Methodology caveat: the public receipt datasets this benchmark draws on
+          (for example SROIE and CORD) have been publicly available for several
+          years and may already appear in the training data of one or more
+          foundation models under test. Scores in this report should therefore be
+          read as reproducible performance on these specific, previously published
+          benchmarks &mdash; not as proof that a solution generalizes to unseen,
+          private receipts it has never encountered before.
+        </p>
+        <p class="note">
+          Precision, recall, and F1 are derived from matched/mismatched/missing/extra
+          field counts (extra rows are unmatched predicted line items or payment
+          methods). <code>hallucinated_extra_rate</code> is limited to those repeated
+          entities: it measures how often a predicted line item or payment method had
+          no ground-truth counterpart at all. There is no equivalent hallucination
+          measure for scalar fields, because the datasets carry no negative-label
+          masks (no ground truth for &ldquo;this field should not be populated&rdquo;);
+          a wrong scalar value is reported as a mismatch, not a hallucination.
+        </p>
+        <p class="note">
+          95% confidence intervals for document exact rate, F1, normalized similarity,
+          and mean latency are computed with a deterministic percentile bootstrap
+          (fixed seed 20260828, 2,000 resamples per solution). Each interval describes
+          only that solution's own sampling uncertainty &mdash; it is not a pairwise
+          significance test between solutions. An interval is blank when there is no
+          underlying data for that solution; with exactly one observation the interval
+          collapses to that single value.
+        </p>
+        <p class="note">
+          Overall quality and fully correct 95% confidence intervals use the same
+          deterministic percentile bootstrap over all attempted receipts, including
+          zero quality for failed or unparseable outputs.
+        </p>
+        <p class="note">
+          Every measurement is deterministic and rule-based; no LLM judge is used.
+        </p>
+        <p class="note">
+          {% if pricing_source %}
+            Cost estimates use the pricing snapshot &ldquo;{{ pricing_source }}&rdquo;
+            (captured {{ pricing_captured_at }}{% if pricing_currency %}, {{ pricing_currency }}{% endif %}).
+            A rate that is missing for a solution/component/usage dimension is left
+            blank rather than inferred.
+          {% else %}
+            No pricing snapshot was loaded for this run: component cost estimates from
+            rates are unavailable (blank) unless a provider reported its own estimated
+            cost directly.
+          {% endif %}
+        </p>
+        <p class="note" id="cost-failure-caveat">
+          Cost methodology caveat: a transport or provider failure that returns no
+          usage payload (for example a network error, timeout, or non-2xx response
+          before any token/page/image accounting was returned) may still have
+          incurred a charge on the provider's side. That cost cannot be
+          reconstructed from the data this benchmark captures, so it is left
+          unpriced rather than estimated or assumed to be zero. Retry and attempt
+          counts for every sample/solution pair remain visible regardless, so the
+          number of calls that could have incurred such unpriced charges is always
+          inspectable.
+        </p>
+      </section>
+
+  <section id="solutions-section">
+    <h2>Full solution metrics</h2>
+    <p class="note">
+      Counts, coverage, exact/normalized quality, failure rates, latency, attempts,
+      component usage, and estimated cost &mdash; reported per solution, unranked.
+    </p>
+    <p class="note">
+      Priced cost total/mean is summed per sample across every one of that
+      sample's components (an OCR pipeline's OCR step plus its shared
+      normalization step both count); a sample contributes only when every one
+      of its components resolves to a priced cost, never a partial sum, so a
+      solution with any unpriced component/dimension reports a blank total
+      rather than an understated one. See the component breakdown below for
+      per-component detail.
+    </p>
+    <p class="note" id="lifecycle-note">
+      Lifecycle and model/deployment are static identity metadata copied
+      from the benchmark config, not a measurement. A <span class="badge
+      badge-preview">Preview</span> badge marks a solution whose configured
+      lifecycle is not <code>ga</code> (for example a preview model or
+      preview API surface); this labels maturity only and does not affect,
+      exclude, or reorder any row.
+    </p>
+    <div class="filters">
+      <input
+        type="text"
+        id="solution-filter"
+        aria-label="Filter full solution metrics by solution ID"
+        placeholder="Filter by solution id"
+      />
+    </div>
+    <div class="card">
+      <table id="solutions-table">
+        <caption class="sr-only">All technical aggregate metrics by solution</caption>
+        <thead>
+          <tr>
+            <th>Solution</th>
+            <th>Lifecycle</th>
+            <th>Kind</th>
+            <th>Deployment</th>
+            <th>Model</th>
+            <th>Overall quality</th>
+            <th>Valid output rate</th>
+            <th>Fully correct rate</th>
+            <th>Samples</th>
+            <th>Succeeded</th>
+            <th>Failed</th>
+            <th>Invalid</th>
+            <th>Error rate</th>
+            <th>Invalid rate</th>
+            <th>Coverage</th>
+            <th>Exact match</th>
+            <th>Normalized similarity</th>
+            <th>Arithmetic consistency</th>
+            <th>Schema valid</th>
+            <th>Document exact</th>
+            <th>Precision</th>
+            <th>Recall</th>
+            <th>F1</th>
+            <th>Hallucinated extra</th>
+            <th>Mean attempts</th>
+            <th>p50 latency (ms)</th>
+            <th>p95 latency (ms)</th>
+            <th>Overall quality 95% CI</th>
+            <th>Fully correct 95% CI</th>
+            <th>Document exact 95% CI</th>
+            <th>F1 95% CI</th>
+            <th>Similarity 95% CI</th>
+            <th>Mean latency 95% CI (ms)</th>
+            <th>Priced cost total</th>
+            <th>Priced cost mean</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="components-section">
+    <h2>Component latency, usage, and cost</h2>
+    <p class="note">
+      Component rows expose OCR, model, normalization, and preserved retry
+      overhead separately. Retry-overhead components retain usage and cost but
+      are excluded from measured end-to-end quality latency.
+    </p>
+    <div class="filters">
+      <input
+        type="text"
+        id="component-filter"
+        aria-label="Filter components by solution or component name"
+        placeholder="Filter by solution or component"
+      />
+    </div>
+    <div class="card">
+      <table id="components-table">
+        <caption class="sr-only">Measured component aggregates by solution</caption>
+        <thead>
+          <tr>
+            <th>Solution</th>
+            <th>Component</th>
+            <th>Samples</th>
+            <th>p50 latency (ms)</th>
+            <th>p95 latency (ms)</th>
+            <th>Mean input tokens</th>
+            <th>Mean output tokens</th>
+            <th>Mean total tokens</th>
+            <th>Mean pages</th>
+            <th>Mean contextualization tokens</th>
+            <th>Total estimated cost</th>
+            <th>Mean estimated cost</th>
+            <th>Priced cost total</th>
+            <th>Priced cost mean</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="distributions-section">
+    <h2>Latency distributions</h2>
+    <p class="note">End-to-end latency per sample, bucketed independently per solution.</p>
+    <div id="distributions"></div>
+  </section>
+
+  <section id="fields-section">
+    <h2>Per dataset / field measurements</h2>
+    <p class="note">
+      Label-mask-aware scoring: only fields present in each sample's
+      <code>labeled_fields</code> are counted toward exact match and normalized
+      similarity, coverage, missing, mismatched, matched, extra, and
+      precision/recall/F1. Rows named <code>*.__extra__</code> represent
+      unmatched (hallucinated) predicted line items or payment methods.
+    </p>
+    <p class="note">
+      Rows are grouped by solution, dataset, source language, and field, so
+      multilingual robustness is explicit and filterable rather than folded
+      into a single dataset-wide number. Language comes from each sample's
+      <code>source_language</code>; samples without one are grouped under
+      <code>unknown</code>. Image quality/complexity metadata is not recorded
+      by the dataset manifest, so no such slices are added here.
+    </p>
+    <div class="filters">
+      <select id="solution-select" aria-label="Filter fields by solution">
+        <option value="">All solutions</option>
+      </select>
+      <select id="dataset-select" aria-label="Filter fields by dataset">
+        <option value="">All datasets</option>
+      </select>
+      <select id="language-select" aria-label="Filter fields by language">
+        <option value="">All languages</option>
+      </select>
+      <input
+        type="text"
+        id="field-filter"
+        aria-label="Filter fields by field name"
+        placeholder="Filter by field name"
+      />
+    </div>
+    <div class="card">
+      <table id="fields-table">
+        <caption class="sr-only">
+          Field metrics grouped by solution, dataset, and language
+        </caption>
+        <thead>
+          <tr>
+            <th>Solution</th>
+            <th>Dataset</th>
+            <th>Language</th>
+            <th>Field</th>
+            <th>Labeled</th>
+            <th>Coverage</th>
+            <th>Exact match</th>
+            <th>Normalized similarity</th>
+            <th>Missing</th>
+            <th>Mismatched</th>
+            <th>Matched</th>
+            <th>Extra</th>
+            <th>Precision</th>
+            <th>Recall</th>
+            <th>F1</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="warmups-section">
+    <h2>Warmup call overhead</h2>
+    <p class="note">
+      Warmup calls are real, potentially paid, provider calls made to absorb
+      one-time connection/provider warm-up cost before any measured pair runs.
+      They are never scored and are excluded from every quality metric above
+      and from each solution's measured end-to-end latency; this section
+      reports their usage and cost separately so that overhead is visible
+      rather than silently discarded.
+    </p>
+    <div class="filters">
+      <input
+        type="text"
+        id="warmup-filter"
+        aria-label="Filter warmup metrics by solution ID"
+        placeholder="Filter by solution id"
+      />
+    </div>
+    <div class="card">
+      <table id="warmups-table">
+        <caption class="sr-only">Warmup latency, usage, and cost by solution</caption>
+        <thead>
+          <tr>
+            <th>Solution</th>
+            <th>Warmup calls</th>
+            <th>Warmup p50 latency (ms)</th>
+            <th>Warmup p95 latency (ms)</th>
+            <th>Component</th>
+            <th>Mean input tokens</th>
+            <th>Mean output tokens</th>
+            <th>Mean pages</th>
+            <th>Total estimated cost</th>
+            <th>Priced cost total</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+    </div>
+  </details>
+</main>
+  <footer>Generated by receipt-bench.</footer>
+<script id="report-data" type="application/json">{{ data_json | safe }}</script>
+<script>
+(() => {
+  const data = JSON.parse(document.getElementById("report-data").textContent);
+
+  function escapeHtml(value) {
+    const element = document.createElement("span");
+    element.textContent = value === null || value === undefined ? "" : String(value);
+    return element.innerHTML;
+  }
+  function finiteNumber(value) {
+    if (value === null || value === undefined || value === "") return null;
+    const number = Number(value);
+    return Number.isFinite(number) ? number : null;
+  }
+  function pct(value) {
+    const number = finiteNumber(value);
+    if (number === null) return "—";
+    return (number * 100).toFixed(1) + "%";
+  }
+  function num(value, digits) {
+    const number = finiteNumber(value);
+    if (number === null) return "—";
+    return number.toFixed(digits === undefined ? 1 : digits);
+  }
+  function seconds(valueMs) {
+    const number = finiteNumber(valueMs);
+    if (number === null) return "Unavailable";
+    const value = number / 1000;
+    return value.toFixed(value < 10 ? 2 : 1) + " s";
+  }
+  function usd(value) {
+    const number = finiteNumber(value);
+    if (number === null) return "Unavailable";
+    const absolute = Math.abs(number);
+    const digits = number === 0 || absolute >= 1 ? 2 : absolute >= 0.01 ? 3 : 4;
+    return "$" + number.toFixed(digits);
+  }
+  function compareSolutionIds(left, right) {
+    const leftValue = String(left);
+    const rightValue = String(right);
+    const leftFolded = leftValue.toLocaleLowerCase();
+    const rightFolded = rightValue.toLocaleLowerCase();
+    if (leftFolded < rightFolded) return -1;
+    if (leftFolded > rightFolded) return 1;
+    if (leftValue < rightValue) return -1;
+    if (leftValue > rightValue) return 1;
+    return 0;
+  }
+  function rateBadge(value, positiveIsGood) {
+    let cls = "badge-ok";
+    if (value !== null && value !== undefined && value > 0) {
+      cls = positiveIsGood ? "badge-ok" : "badge-bad";
+    }
+    return '<span class="badge ' + cls + '">' + pct(value) + "</span>";
+  }
+  function ciRange(interval, formatter) {
+    if (
+      !interval ||
+      interval.lower === null || interval.lower === undefined ||
+      interval.upper === null || interval.upper === undefined
+    ) {
+      return "—";
+    }
+    return formatter(interval.lower) + "–" + formatter(interval.upper);
+  }
+  function lifecycleBadge(lifecycle) {
+    const value = lifecycle || "ga";
+    if (value === "ga") {
+      return '<span class="badge badge-ga">GA</span>';
+    }
+    const label = value.charAt(0).toUpperCase() + value.slice(1);
+    return '<span class="badge badge-preview">' + escapeHtml(label) + "</span>";
+  }
+  function solutionCell(row) {
+    const metadata = [lifecycleBadge(row.lifecycle)];
+    if (row.kind) {
+      metadata.push(
+        '<span class="metadata-item">Kind: ' + escapeHtml(row.kind) + "</span>"
+      );
+    }
+    if (row.model) {
+      metadata.push(
+        '<span class="metadata-item">Model: ' + escapeHtml(row.model) + "</span>"
+      );
+    }
+    if (row.deployment && row.deployment !== row.model) {
+      metadata.push(
+        '<span class="metadata-item">Deployment: ' +
+        escapeHtml(row.deployment) +
+        "</span>"
+      );
+    }
+    return (
+      '<span class="solution-name">' + escapeHtml(row.solution_id) + "</span>" +
+      '<span class="solution-meta">' + metadata.join("") + "</span>"
+    );
+  }
+
+  const comparisonBody = document.querySelector("#comparison-table tbody");
+  const comparisonRows = data.solutions.slice().sort((left, right) => {
+    const leftQuality = finiteNumber(left.overall_quality_score);
+    const rightQuality = finiteNumber(right.overall_quality_score);
+    if (leftQuality === null && rightQuality !== null) return 1;
+    if (leftQuality !== null && rightQuality === null) return -1;
+    if (
+      leftQuality !== null &&
+      rightQuality !== null &&
+      leftQuality !== rightQuality
+    ) {
+      return rightQuality - leftQuality;
+    }
+    return compareSolutionIds(left.solution_id, right.solution_id);
+  });
+  comparisonRows.forEach((row) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML =
+      '<td class="solution-cell">' + solutionCell(row) + "</td>" +
+      "<td>" + pct(row.overall_quality_score) + "</td>" +
+      "<td>" + pct(row.valid_output_rate) + "</td>" +
+      "<td>" + pct(row.fully_correct_rate) + "</td>" +
+      "<td>" + seconds(row.overall_latency && row.overall_latency.p50_ms) + "</td>" +
+      "<td>" + usd(row.priced_cost_mean) + "</td>";
+    comparisonBody.appendChild(tr);
+  });
+
+  const solutionsBody = document.querySelector("#solutions-table tbody");
+  function renderSolutions(filterText) {
+    solutionsBody.innerHTML = "";
+    const needle = (filterText || "").toLowerCase();
+    data.solutions
+      .filter((row) => row.solution_id.toLowerCase().includes(needle))
+      .forEach((row) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML =
+          "<td>" + escapeHtml(row.solution_id) + "</td>" +
+          "<td>" + lifecycleBadge(row.lifecycle) + "</td>" +
+          "<td>" + (row.kind ? escapeHtml(row.kind) : "—") + "</td>" +
+          "<td>" + (row.deployment ? escapeHtml(row.deployment) : "—") + "</td>" +
+          "<td>" + (row.model ? escapeHtml(row.model) : "—") + "</td>" +
+          "<td>" + pct(row.overall_quality_score) + "</td>" +
+          "<td>" + pct(row.valid_output_rate) + "</td>" +
+          "<td>" + pct(row.fully_correct_rate) + "</td>" +
+          "<td>" + row.total_samples + "</td>" +
+          "<td>" + row.succeeded + "</td>" +
+          "<td>" + row.failed + "</td>" +
+          "<td>" + row.invalid + "</td>" +
+          "<td>" + rateBadge(row.error_rate, false) + "</td>" +
+          "<td>" + rateBadge(row.invalid_rate, false) + "</td>" +
+          "<td>" + pct(row.coverage) + "</td>" +
+          "<td>" + pct(row.exact_match_rate) + "</td>" +
+          "<td>" + pct(row.mean_normalized_similarity) + "</td>" +
+          "<td>" + pct(row.arithmetic_consistency_rate) + "</td>" +
+          "<td>" + pct(row.schema_valid_rate) + "</td>" +
+          "<td>" + pct(row.document_exact_rate) + "</td>" +
+          "<td>" + pct(row.precision) + "</td>" +
+          "<td>" + pct(row.recall) + "</td>" +
+          "<td>" + pct(row.f1) + "</td>" +
+          "<td>" + pct(row.hallucinated_extra_rate) + "</td>" +
+          "<td>" + num(row.mean_attempts, 2) + "</td>" +
+          "<td>" + num(row.overall_latency && row.overall_latency.p50_ms, 0) + "</td>" +
+          "<td>" + num(row.overall_latency && row.overall_latency.p95_ms, 0) + "</td>" +
+          "<td>" + ciRange(row.overall_quality_score_ci, pct) + "</td>" +
+          "<td>" + ciRange(row.fully_correct_rate_ci, pct) + "</td>" +
+          "<td>" + ciRange(row.document_exact_rate_ci, pct) + "</td>" +
+          "<td>" + ciRange(row.f1_ci, pct) + "</td>" +
+          "<td>" + ciRange(row.mean_normalized_similarity_ci, pct) + "</td>" +
+          "<td>" + ciRange(row.mean_latency_ms_ci, (v) => num(v, 0)) + "</td>" +
+          "<td>" + num(row.priced_cost_total, 4) + "</td>" +
+          "<td>" + num(row.priced_cost_mean, 4) + "</td>";
+        solutionsBody.appendChild(tr);
+      });
+  }
+  document.getElementById("solution-filter").addEventListener("input", (event) => {
+    renderSolutions(event.target.value);
+  });
+  renderSolutions("");
+
+  const componentsBody = document.querySelector("#components-table tbody");
+  const componentRows = data.solutions.flatMap((solution) =>
+    (solution.components || []).map((component) => ({
+      solutionId: solution.solution_id,
+      component: component,
+    }))
+  );
+  function renderComponents(filterText) {
+    componentsBody.innerHTML = "";
+    const needle = (filterText || "").toLowerCase();
+    const filteredRows = componentRows.filter(
+      (row) =>
+        row.solutionId.toLowerCase().includes(needle) ||
+        row.component.component.toLowerCase().includes(needle)
+    );
+    filteredRows.forEach((row) => {
+      const component = row.component;
+      const tr = document.createElement("tr");
+      tr.innerHTML =
+        "<td>" + escapeHtml(row.solutionId) + "</td>" +
+        "<td>" + escapeHtml(component.component) + "</td>" +
+        "<td>" + component.sample_count + "</td>" +
+        "<td>" + num(component.latency && component.latency.p50_ms, 0) + "</td>" +
+        "<td>" + num(component.latency && component.latency.p95_ms, 0) + "</td>" +
+        "<td>" + num(component.mean_input_tokens, 0) + "</td>" +
+        "<td>" + num(component.mean_output_tokens, 0) + "</td>" +
+        "<td>" + num(component.mean_total_tokens, 0) + "</td>" +
+        "<td>" + num(component.mean_pages, 2) + "</td>" +
+        "<td>" + num(component.mean_contextualization_tokens, 0) + "</td>" +
+        "<td>" + num(component.total_estimated_cost, 6) + "</td>" +
+        "<td>" + num(component.mean_estimated_cost, 6) + "</td>" +
+        "<td>" + num(component.priced_cost_total, 6) + "</td>" +
+        "<td>" + num(component.priced_cost_mean, 6) + "</td>";
+      componentsBody.appendChild(tr);
+    });
+    if (!filteredRows.length) {
+      const tr = document.createElement("tr");
+      tr.innerHTML =
+        '<td colspan="14" class="empty-state">No matching component data.</td>';
+      componentsBody.appendChild(tr);
+    }
+  }
+  document.getElementById("component-filter").addEventListener("input", (event) => {
+    renderComponents(event.target.value);
+  });
+  renderComponents("");
+
+  const distributions = document.getElementById("distributions");
+  data.solutions.forEach((row) => {
+    const block = document.createElement("div");
+    block.className = "solution-block";
+    const counts = row.latency_histogram.map((bucket) => bucket.count);
+    const maxCount = counts.length ? Math.max(1, ...counts) : 1;
+    const rows = row.latency_histogram
+      .map((bucket) => {
+        const width = (bucket.count / maxCount) * 100;
+        return (
+          '<div class="hist-row">' +
+          '<div class="hist-label">' + bucket.label + "</div>" +
+          '<div class="hist-bar-track"><div class="hist-bar-fill" style="width:' +
+          width + '%"></div></div>' +
+          '<div class="hist-count">' + bucket.count + "</div>" +
+          "</div>"
+        );
+      })
+      .join("");
+    block.innerHTML =
+      "<h3>" + row.solution_id + "</h3>" +
+      (rows || '<p class="note">No latency samples recorded.</p>');
+    distributions.appendChild(block);
+  });
+
+  const solutionSelect = document.getElementById("solution-select");
+  const datasetSelect = document.getElementById("dataset-select");
+  const languageSelect = document.getElementById("language-select");
+  const uniqueSolutions = Array.from(new Set(data.fields.map((row) => row.solution_id))).sort();
+  const uniqueDatasets = Array.from(new Set(data.fields.map((row) => row.dataset))).sort();
+  const uniqueLanguages = Array.from(new Set(data.fields.map((row) => row.language))).sort();
+  uniqueSolutions.forEach((value) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    solutionSelect.appendChild(option);
+  });
+  uniqueDatasets.forEach((value) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    datasetSelect.appendChild(option);
+  });
+  uniqueLanguages.forEach((value) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    languageSelect.appendChild(option);
+  });
+
+  const fieldsBody = document.querySelector("#fields-table tbody");
+  function renderFields() {
+    const solutionValue = solutionSelect.value;
+    const datasetValue = datasetSelect.value;
+    const languageValue = languageSelect.value;
+    const fieldNeedle = document.getElementById("field-filter").value.toLowerCase();
+    fieldsBody.innerHTML = "";
+    data.fields
+      .filter((row) => !solutionValue || row.solution_id === solutionValue)
+      .filter((row) => !datasetValue || row.dataset === datasetValue)
+      .filter((row) => !languageValue || row.language === languageValue)
+      .filter((row) => row.field.toLowerCase().includes(fieldNeedle))
+      .forEach((row) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML =
+          "<td>" + row.solution_id + "</td>" +
+          "<td>" + row.dataset + "</td>" +
+          "<td>" + row.language + "</td>" +
+          "<td>" + row.field + "</td>" +
+          "<td>" + row.labeled_count + "</td>" +
+          "<td>" + pct(row.coverage) + "</td>" +
+          "<td>" + pct(row.exact_match_rate) + "</td>" +
+          "<td>" + pct(row.mean_normalized_similarity) + "</td>" +
+          "<td>" + row.missing_count + "</td>" +
+          "<td>" + row.mismatched_count + "</td>" +
+          "<td>" + row.matched_count + "</td>" +
+          "<td>" + row.extra_count + "</td>" +
+          "<td>" + pct(row.precision) + "</td>" +
+          "<td>" + pct(row.recall) + "</td>" +
+          "<td>" + pct(row.f1) + "</td>";
+        fieldsBody.appendChild(tr);
+      });
+  }
+  solutionSelect.addEventListener("change", renderFields);
+  datasetSelect.addEventListener("change", renderFields);
+  languageSelect.addEventListener("change", renderFields);
+  document.getElementById("field-filter").addEventListener("input", renderFields);
+  renderFields();
+
+  const warmupsBody = document.querySelector("#warmups-table tbody");
+  function renderWarmups(filterText) {
+    warmupsBody.innerHTML = "";
+    const needle = (filterText || "").toLowerCase();
+    const warmups = (data.warmups || []).filter((row) =>
+      row.solution_id.toLowerCase().includes(needle)
+    );
+    warmups.forEach((row) => {
+      const components = row.components && row.components.length ? row.components : [null];
+      components.forEach((component) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML =
+          "<td>" + row.solution_id + "</td>" +
+          "<td>" + row.warmup_count + "</td>" +
+          "<td>" + num(row.latency.p50_ms, 0) + "</td>" +
+          "<td>" + num(row.latency.p95_ms, 0) + "</td>" +
+          "<td>" + (component ? component.component : "—") + "</td>" +
+          "<td>" + (component ? num(component.mean_input_tokens, 0) : "—") + "</td>" +
+          "<td>" + (component ? num(component.mean_output_tokens, 0) : "—") + "</td>" +
+          "<td>" + (component ? num(component.mean_pages, 2) : "—") + "</td>" +
+          "<td>" + (component ? num(component.total_estimated_cost, 4) : "—") + "</td>" +
+          "<td>" + (component ? num(component.priced_cost_total, 4) : "—") + "</td>";
+        warmupsBody.appendChild(tr);
+      });
+    });
+    if (!warmups.length) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = '<td colspan="10" class="note">No warmup calls recorded for this run.</td>';
+      warmupsBody.appendChild(tr);
+    }
+  }
+  document.getElementById("warmup-filter").addEventListener("input", (event) => {
+    renderWarmups(event.target.value);
+  });
+  renderWarmups("");
+})();
+</script>
+</body>
+</html>

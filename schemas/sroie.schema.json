@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Jbetts05/receipt-understanding-benchmark/schemas/sroie.schema.json",
+  "title": "SROIE native key answer",
+  "description": "The four string fields labeled by the fixed SROIE trainval-style project.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "company",
+    "address",
+    "date",
+    "total"
+  ],
+  "properties": {
+    "company": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "total": {
+      "type": "string"
+    }
+  }
+}

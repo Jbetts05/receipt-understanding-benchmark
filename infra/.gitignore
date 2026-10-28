@@ -1,0 +1,4 @@
+.package-staging/
+.package-backup/
+package/*
+!package/.gitignore

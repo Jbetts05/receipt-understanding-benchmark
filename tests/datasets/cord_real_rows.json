@@ -1,0 +1,530 @@
+{
+ "3": {
+  "menu": {
+   "nm": "DONAT GULA",
+   "unitprice": "@11000",
+   "cnt": "1X",
+   "price": "11,000"
+  },
+  "sub_total": {
+   "subtotal_price": "11,000"
+  },
+  "total": {
+   "total_price": "11,000",
+   "cashprice": "11,000",
+   "menuqty_cnt": "1.00xITEMs"
+  }
+ },
+ "11": {
+  "menu": {
+   "nm": "BANABERRY FRESH CREAM CAK",
+   "cnt": "1",
+   "price": "230,000"
+  },
+  "total": {
+   "total_price": "230,000",
+   "cashprice": "230,000",
+   "changeprice": "0"
+  }
+ },
+ "15": {
+  "menu": [
+   {
+    "nm": "Lemon Tea (L)",
+    "cnt": "1",
+    "price": "25.000"
+   },
+   {
+    "nm": "Caramel Small",
+    "cnt": "1",
+    "price": "38.000"
+   }
+  ],
+  "total": {
+   "total_price": "63.000",
+   "cashprice": "70.000",
+   "changeprice": "7.000"
+  }
+ },
+ "26": {
+  "menu": [
+   {
+    "nm": "Nasi Cap Cay Porsi B esar",
+    "unitprice": "65.000",
+    "cnt": "1",
+    "price": "65.000",
+    "etc": "Cap Cay"
+   },
+   {
+    "nm": "Teh Tawar",
+    "unitprice": "4.000",
+    "cnt": "2",
+    "etc": "Minuman"
+   },
+   {
+    "nm": "Fu Yung Hai",
+    "unitprice": "65.000",
+    "cnt": "1",
+    "price": "65.000",
+    "etc": "Lain-lain"
+   }
+  ],
+  "sub_total": {
+   "subtotal_price": "Rp 138.000"
+  },
+  "total": {
+   "total_price": "Rp 138.000",
+   "cashprice": "Rp 138.000",
+   "changeprice": "Rp 0"
+  }
+ },
+ "28": {
+  "menu": [
+   {
+    "nm": "SAMGYOPSAL",
+    "cnt": "2",
+    "price": "194,000"
+   },
+   {
+    "nm": "SUL LUNG TANG",
+    "cnt": "1",
+    "price": "75,000"
+   },
+   {
+    "nm": "MAKOLI",
+    "cnt": "1",
+    "price": "100,000"
+   }
+  ],
+  "sub_total": {
+   "subtotal_price": "369,000",
+   "discount_price": "0",
+   "service_price": "18,450",
+   "tax_price": "38,745"
+  },
+  "total": {
+   "total_price": "426,195"
+  }
+ },
+ "34": {
+  "menu": [
+   {
+    "nm": "Ash Chick Sambal Matah",
+    "cnt": "5",
+    "price": "75.000"
+   },
+   {
+    "nm": "Jamur Goreng",
+    "cnt": "2",
+    "price": "10.000"
+   }
+  ],
+  "sub_total": {
+   "subtotal_price": "85.000",
+   "tax_price": "8.500"
+  },
+  "total": {
+   "total_price": "93.500",
+   "cashprice": "100.000",
+   "changeprice": "6.500"
+  }
+ },
+ "35": {
+  "menu": [
+   {
+    "nm": "TWIST DONUT",
+    "cnt": "2",
+    "price": "18,000"
+   },
+   {
+    "nm": "BANANA DONUT",
+    "cnt": "1",
+    "price": "11,000"
+   },
+   {
+    "nm": "CREAMCHEESE BREAD",
+    "cnt": "1",
+    "price": "13,000"
+   },
+   {
+    "nm": "FRANKFRUT SAUSAGE ROLL",
+    "cnt": "1",
+    "price": "12,000"
+   }
+  ],
+  "total": {
+   "total_price": "54,000",
+   "cashprice": "104,000",
+   "changeprice": "50,000"
+  }
+ },
+ "42": {
+  "menu": {
+   "nm": "Chicken HCC. 1Pcs",
+   "cnt": "1",
+   "price": "15.000"
+  },
+  "sub_total": {
+   "subtotal_price": "15,000",
+   "tax_price": "1,500"
+  },
+  "total": {
+   "total_price": "16,500",
+   "cashprice": "50,000",
+   "changeprice": "33,500",
+   "menuqty_cnt": "1"
+  }
+ },
+ "46": {
+  "menu": [
+   {
+    "nm": "S-Bubble Milk Tea",
+    "unitprice": "@20,000",
+    "cnt": "1X",
+    "price": "20,000",
+    "sub": {
+     "nm": "100%"
+    }
+   },
+   {
+    "nm": "S-Caramel Milk Tea",
+    "unitprice": "@20,000",
+    "cnt": "1X",
+    "price": "20,000",
+    "sub": {
+     "nm": "100%"
+    }
+   }
+  ],
+  "total": {
+   "total_price": "40,000",
+   "cashprice": "40,000",
+   "changeprice": "0"
+  }
+ },
+ "47": {
+  "menu": [
+   {
+    "nm": "COPIA 1 /GB",
+    "num": "2100252000358",
+    "unitprice": "45,000.00",
+    "cnt": "1",
+    "price": "45,000.00"
+   },
+   {
+    "nm": "PLASTIC BAG RED CENTRAL SI",
+    "num": "9100544260074",
+    "unitprice": "0.00",
+    "cnt": "1",
+    "price": "0.00"
+   },
+   {
+    "nm": "COPIA 1 /GB",
+    "num": "2100252000358",
+    "unitprice": "18,000.00",
+    "cnt": "1",
+    "price": "18,000.00"
+   }
+  ],
+  "sub_total": {
+   "discount_price": "0.00"
+  },
+  "total": {
+   "total_price": "63,000.00",
+   "creditcardprice": "63,000.00",
+   "menuqty_cnt": "3"
+  }
+ },
+ "49": {
+  "menu": [
+   {
+    "nm": "Ptgs Eggtart",
+    "cnt": "1",
+    "price": "12,000"
+   },
+   {
+    "nm": "Choco Melt",
+    "cnt": "1",
+    "price": "11,000"
+   }
+  ],
+  "sub_total": {
+   "subtotal_price": "23,000"
+  },
+  "total": {
+   "total_price": "23,000",
+   "cashprice": "50,000",
+   "changeprice": "27,000",
+   "menutype_cnt": "2",
+   "menuqty_cnt": "2"
+  }
+ },
+ "58": {
+  "menu": {
+   "nm": "PHO BO TAI",
+   "cnt": "1",
+   "price": "55,000"
+  },
+  "sub_total": {
+   "subtotal_price": "55,000",
+   "tax_price": "5,500"
+  },
+  "total": {
+   "total_price": "60,500",
+   "cashprice": [
+    "100,000",
+    "100,000"
+   ],
+   "changeprice": "39,500"
+  }
+ },
+ "63": {
+  "menu": [
+   {
+    "nm": "Kopi Susu Kampung.",
+    "cnt": "x1",
+    "price": "19.000",
+    "sub": [
+     {
+      "nm": "Ice"
+     },
+     {
+      "nm": "Kopi Susu Kampung Less Ice",
+      "price": "0"
+     }
+    ]
+   },
+   {
+    "nm": "Kopi Susu Kampung.",
+    "cnt": "x2",
+    "price": "38.000",
+    "sub": {
+     "nm": "Ice"
+    }
+   }
+  ],
+  "sub_total": {
+   "subtotal_price": "57.000"
+  },
+  "total": {
+   "total_price": "57.000",
+   "cashprice": "60.000",
+   "changeprice": "3.000"
+  }
+ },
+ "68": {
+  "menu": {
+   "nm": "ICED TT",
+   "price": "20,000"
+  },
+  "total": {
+   "total_price": "20,000",
+   "cashprice": "50,000",
+   "changeprice": "30,000"
+  }
+ },
+ "72": {
+  "menu": {
+   "nm": "Choco Devil",
+   "cnt": "1",
+   "price": "15,909"
+  },
+  "sub_total": {
+   "subtotal_price": "15,909",
+   "tax_price": "1,591"
+  },
+  "total": {
+   "total_price": "17,500",
+   "cashprice": "20,000",
+   "changeprice": "2,500"
+  }
+ },
+ "73": {
+  "menu": [
+   {
+    "nm": "1001-Choco Bun",
+    "unitprice": "22.000",
+    "cnt": "x1",
+    "price": "22.000"
+   },
+   {
+    "nm": "6001-Plastic Bag Small",
+    "unitprice": "0",
+    "cnt": "x1",
+    "price": "0"
+   }
+  ],
+  "total": {
+   "total_price": "22.000",
+   "cashprice": "25.000",
+   "changeprice": "3.000",
+   "menuqty_cnt": "2"
+  }
+ },
+ "74": {
+  "menu": [
+   {
+    "nm": "BLACKCURRANT",
+    "cnt": "1",
+    "price": "32,000"
+   },
+   {
+    "nm": "SPRITE",
+    "cnt": "1",
+    "price": "32,000"
+   },
+   {
+    "nm": "GRILLED CALAMARI",
+    "cnt": "1",
+    "price": "85,000"
+   },
+   {
+    "nm": "DINE FOR 2",
+    "cnt": "1",
+    "price": "129,000",
+    "sub": [
+     {
+      "nm": "* DANISH FISH & CHIPS DF"
+     },
+     {
+      "nm": "* NEW YORK FISH & CHIPS"
+     }
+    ]
+   }
+  ],
+  "sub_total": {
+   "subtotal_price": "278,000",
+   "service_price": "22,240",
+   "tax_price": "30,024",
+   "etc": [
+    "64,000",
+    "214,000"
+   ]
+  },
+  "total": {
+   "total_price": "330,264"
+  }
+ },
+ "80": {
+  "menu": {
+   "nm": "Viet Milk Coffee",
+   "cnt": "1",
+   "price": "25,000",
+   "sub": [
+    {
+     "nm": "+Ice"
+    },
+    {
+     "nm": "+M"
+    }
+   ]
+  },
+  "sub_total": {
+   "subtotal_price": "25.000"
+  },
+  "total": {
+   "total_price": "25.000",
+   "cashprice": "25.000",
+   "changeprice": "0"
+  }
+ },
+ "85": {
+  "menu": [
+   {
+    "nm": "Nasi Putih",
+    "cnt": "3",
+    "price": "30.000"
+   },
+   {
+    "nm": "Nasi Tambah",
+    "cnt": "1",
+    "price": "7.000"
+   },
+   {
+    "nm": "Ayam Pop",
+    "cnt": "2",
+    "price": "40.000"
+   },
+   {
+    "nm": "Samabal SP",
+    "cnt": "1",
+    "price": "11.000"
+   },
+   {
+    "nm": "Sambal Gabus Asin Cb",
+    "cnt": "1",
+    "price": "18.000"
+   },
+   {
+    "nm": "Kerupuk Kuah",
+    "cnt": "1",
+    "price": "15.000"
+   },
+   {
+    "nm": "Ikan Bawal Besa",
+    "cnt": "1",
+    "price": "28.500"
+   },
+   {
+    "nm": "Telur Dadar",
+    "cnt": "1",
+    "price": "10.000"
+   },
+   {
+    "nm": "Teh Es",
+    "cnt": "1",
+    "price": "7.000"
+   },
+   {
+    "nm": "Teh Manis",
+    "cnt": "1",
+    "price": "9.000"
+   },
+   {
+    "nm": "Es Batu",
+    "cnt": "1",
+    "price": "4.000"
+   }
+  ],
+  "sub_total": {
+   "subtotal_price": "179.500",
+   "tax_price": "17.950",
+   "etc": [
+    "159.500",
+    "20.000"
+   ]
+  },
+  "total": {
+   "total_price": "197.450",
+   "cashprice": "197.450",
+   "menuqty_cnt": "14"
+  }
+ },
+ "98": {
+  "menu": [
+   {
+    "nm": "BLACK PAPPER MEATBALL PAS",
+    "cnt": "1",
+    "price": "79,000"
+   },
+   {
+    "nm": "TRUFFLE CREAM",
+    "cnt": "1",
+    "price": "77,000"
+   },
+   {
+    "nm": "EARL GREY MILK TEA",
+    "cnt": "1",
+    "price": "59,000"
+   }
+  ],
+  "sub_total": {
+   "subtotal_price": "215,000",
+   "service_price": "12,900",
+   "tax_price": "22,790"
+  },
+  "total": {
+   "total_price": "250,690"
+  }
+ }
+}

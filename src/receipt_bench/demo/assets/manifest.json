@@ -1,0 +1,238 @@
+{
+  "manifest_version": "1.0",
+  "dataset": {
+    "name": "CORD v2",
+    "id": "naver-clova-ix/cord-v2",
+    "url": "https://huggingface.co/datasets/naver-clova-ix/cord-v2",
+    "revision": "7f0115a4b758a71d6473b8d085751692da2fef98",
+    "split": "test",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "citation": "CORD: A Consolidated Receipt Dataset for Post-OCR Parsing (Park et al., NeurIPS 2019 Document Intelligence Workshop), Naver Clova / CLOVA.ai",
+    "annotation_scope": "CORD v2 menu arrays are complete receipt annotations. The collection-level line_items mask makes unmatched predicted items explicit extras; null fields outside the native annotations remain unlabeled."
+  },
+  "receipts": [
+    {
+      "demo_id": "clean-simple",
+      "title": "Clean & simple",
+      "description": "A clear single-item receipt with straightforward subtotal and total labels.",
+      "selection_reason": "Chosen from the pinned CORD v2 test split as a compact baseline with one labeled line item.",
+      "source_row_index": 80,
+      "source_row_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=80&length=1",
+      "image_width": 432,
+      "image_height": 648,
+      "sample": {
+        "sample_id": "cord-080",
+        "dataset": "cord-v2",
+        "split": "test",
+        "image_path": "cord-v2/cord-080.jpg",
+        "image_sha256": "e94568f24c51d0b98441a0fc5ee36d1c07eff36291f54d36ddb48b93e9c1af01",
+        "source_language": "id",
+        "ground_truth": {
+          "schema_version": "1.0",
+          "merchant": {
+            "name": null,
+            "address": null,
+            "phone": null,
+            "tax_id": null
+          },
+          "transaction": {
+            "date": null,
+            "time": null,
+            "receipt_number": null,
+            "currency": null,
+            "country": null
+          },
+          "amounts": {
+            "subtotal": 25000.0,
+            "discount": null,
+            "tax": null,
+            "tip": null,
+            "total": 25000.0
+          },
+          "payment_methods": null,
+          "receipt_type": null,
+          "line_items": [
+            {
+              "description": "Viet Milk Coffee",
+              "product_code": null,
+              "quantity": 1.0,
+              "unit": null,
+              "unit_price": null,
+              "discount": null,
+              "tax": null,
+              "total_price": 25000.0
+            }
+          ]
+        },
+        "labeled_fields": [
+          "amounts.subtotal",
+          "amounts.total",
+          "line_items",
+          "line_items.description",
+          "line_items.quantity",
+          "line_items.total_price"
+        ]
+      }
+    },
+    {
+      "demo_id": "complex-itemized",
+      "title": "Complex & itemized",
+      "description": "A three-item restaurant receipt with VAT, service charge, and an explicit zero discount.",
+      "selection_reason": "Chosen to exercise repeated line items and labeled subtotal, discount, tax, and total fields.",
+      "source_row_index": 28,
+      "source_row_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=28&length=1",
+      "image_width": 1152,
+      "image_height": 1728,
+      "sample": {
+        "sample_id": "cord-028",
+        "dataset": "cord-v2",
+        "split": "test",
+        "image_path": "cord-v2/cord-028.jpg",
+        "image_sha256": "8efb14c4db22648bc784a1ff0176524d58eba89051dfc0743a1a4f9e20222495",
+        "source_language": "id",
+        "ground_truth": {
+          "schema_version": "1.0",
+          "merchant": {
+            "name": null,
+            "address": null,
+            "phone": null,
+            "tax_id": null
+          },
+          "transaction": {
+            "date": null,
+            "time": null,
+            "receipt_number": null,
+            "currency": null,
+            "country": null
+          },
+          "amounts": {
+            "subtotal": 369000.0,
+            "discount": 0.0,
+            "tax": 38745.0,
+            "tip": null,
+            "total": 426195.0
+          },
+          "payment_methods": null,
+          "receipt_type": null,
+          "line_items": [
+            {
+              "description": "SAMGYOPSAL",
+              "product_code": null,
+              "quantity": 2.0,
+              "unit": null,
+              "unit_price": null,
+              "discount": null,
+              "tax": null,
+              "total_price": 194000.0
+            },
+            {
+              "description": "SUL LUNG TANG",
+              "product_code": null,
+              "quantity": 1.0,
+              "unit": null,
+              "unit_price": null,
+              "discount": null,
+              "tax": null,
+              "total_price": 75000.0
+            },
+            {
+              "description": "MAKOLI",
+              "product_code": null,
+              "quantity": 1.0,
+              "unit": null,
+              "unit_price": null,
+              "discount": null,
+              "tax": null,
+              "total_price": 100000.0
+            }
+          ]
+        },
+        "labeled_fields": [
+          "amounts.discount",
+          "amounts.subtotal",
+          "amounts.tax",
+          "amounts.total",
+          "line_items",
+          "line_items.description",
+          "line_items.quantity",
+          "line_items.total_price"
+        ]
+      }
+    },
+    {
+      "demo_id": "challenging-noisy",
+      "title": "Challenging & noisy",
+      "description": "A low-resolution 320×624 capture with faint text, skew, and a prominent logo.",
+      "selection_reason": "Chosen to represent an intentionally difficult but still gold-labeled CORD v2 example.",
+      "source_row_index": 34,
+      "source_row_url": "https://datasets-server.huggingface.co/rows?dataset=naver-clova-ix%2Fcord-v2&config=default&split=test&offset=34&length=1",
+      "image_width": 320,
+      "image_height": 624,
+      "sample": {
+        "sample_id": "cord-034",
+        "dataset": "cord-v2",
+        "split": "test",
+        "image_path": "cord-v2/cord-034.jpg",
+        "image_sha256": "683916a84a94d7c146c4fa6e25baa3b568002818d90fe444fd023c4aeeda7de6",
+        "source_language": "id",
+        "ground_truth": {
+          "schema_version": "1.0",
+          "merchant": {
+            "name": null,
+            "address": null,
+            "phone": null,
+            "tax_id": null
+          },
+          "transaction": {
+            "date": null,
+            "time": null,
+            "receipt_number": null,
+            "currency": null,
+            "country": null
+          },
+          "amounts": {
+            "subtotal": 85000.0,
+            "discount": null,
+            "tax": 8500.0,
+            "tip": null,
+            "total": 93500.0
+          },
+          "payment_methods": null,
+          "receipt_type": null,
+          "line_items": [
+            {
+              "description": "Ash Chick Sambal Matah",
+              "product_code": null,
+              "quantity": 5.0,
+              "unit": null,
+              "unit_price": null,
+              "discount": null,
+              "tax": null,
+              "total_price": 75000.0
+            },
+            {
+              "description": "Jamur Goreng",
+              "product_code": null,
+              "quantity": 2.0,
+              "unit": null,
+              "unit_price": null,
+              "discount": null,
+              "tax": null,
+              "total_price": 10000.0
+            }
+          ]
+        },
+        "labeled_fields": [
+          "amounts.subtotal",
+          "amounts.tax",
+          "amounts.total",
+          "line_items",
+          "line_items.description",
+          "line_items.quantity",
+          "line_items.total_price"
+        ]
+      }
+    }
+  ]
+}

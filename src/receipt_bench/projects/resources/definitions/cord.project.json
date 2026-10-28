@@ -1,0 +1,177 @@
+{
+  "project_id": "cord-v2",
+  "name": "CORD v2 post-OCR parsing",
+  "description": "Fixed 20-index CORD v2 test selection using the normalized dataset-native gt_parse structure.",
+  "source": {
+    "dataset_id": "naver-clova-ix/cord-v2",
+    "revision": "7f0115a4b758a71d6473b8d085751692da2fef98",
+    "split": "test",
+    "source_url": "https://huggingface.co/datasets/naver-clova-ix/cord-v2",
+    "license": "CC-BY-4.0",
+    "attribution": "CORD: A Consolidated Receipt Dataset for Post-OCR Parsing, Park et al., Naver Clova / CLOVA.ai",
+    "redistribution": "open"
+  },
+  "normalization_profile": "cord-v2-v1",
+  "schema_file": {
+    "schema_id": "cord-v2-gt-parse",
+    "version": "1.0.0",
+    "path": "schemas/cord.schema.json",
+    "content_hash": "784861c8505c5d36eae27b617b34c87bd3c8890ca97e1fa4112dbc17a72d7036"
+  },
+  "prompt_files": [
+    {
+      "path": "prompts/cord/direct-multimodal.v1.json"
+    },
+    {
+      "path": "prompts/cord/ocr-normalizer.v1.json"
+    }
+  ],
+  "sample_set": {
+    "prefix": "cord",
+    "indices": [
+      3,
+      11,
+      15,
+      26,
+      28,
+      34,
+      35,
+      42,
+      46,
+      47,
+      49,
+      58,
+      63,
+      68,
+      72,
+      73,
+      74,
+      80,
+      85,
+      98
+    ],
+    "id_width": 3,
+    "split": "test",
+    "language": "id",
+    "image": {
+      "kind": "image",
+      "path_template": "data/raw/images/cord/7f0115a4b758a71d6473b8d085751692da2fef98/{source_id}.jpg",
+      "media_type": "image/jpeg"
+    },
+    "gold": {
+      "kind": "gold",
+      "path_template": "data/raw/images/cord/7f0115a4b758a71d6473b8d085751692da2fef98/{source_id}.ground_truth.json",
+      "media_type": "application/json",
+      "selector": "$.gt_parse"
+    },
+    "ocr_reference": {
+      "kind": "ocr-reference",
+      "path_template": "data/raw/images/cord/7f0115a4b758a71d6473b8d085751692da2fef98/{source_id}.ground_truth.json",
+      "media_type": "application/json",
+      "selector": "$.valid_line[*].words[*].text"
+    }
+  },
+  "few_shot_selection_method": "schema-coverage-v2: return both v1 examples to scoring (047 preserves unique num/creditcard fields; 074 preserves its complex sub/summary case), exclude remaining candidates carrying any other unique leaf path, then maximize complementary normalized leaf-path coverage with inverse-frequency and ascending-ID tie breaks",
+  "few_shots": [
+    {
+      "sample_id": "cord-028",
+      "reason": "Highest complementary subtotal coverage without removing a unique schema path from scoring: repeated menu items plus subtotal, discount, service, tax, and total fields.",
+      "image_sha256": "8efb14c4db22648bc784a1ff0176524d58eba89051dfc0743a1a4f9e20222495",
+      "gold_sha256": "f24a3f096a3c656b847660d56403008939b4e13af6781f826c0865f7929d1914",
+      "ocr_sha256": "f24a3f096a3c656b847660d56403008939b4e13af6781f826c0865f7929d1914"
+    },
+    {
+      "sample_id": "cord-046",
+      "reason": "Complements cord-028 without removing a unique schema path from scoring: repeated menu items with unit prices and nested sub objects plus cash and change totals.",
+      "image_sha256": "dbf3ae37f69b24dadaf26ae18520b7f011b27fd3b63d0f9950632b5af7be7183",
+      "gold_sha256": "e1c54701f7b4ae4b93c096cccd6599ca94fb9ee9f907e08a47533292a5fcc6d7",
+      "ocr_sha256": "e1c54701f7b4ae4b93c096cccd6599ca94fb9ee9f907e08a47533292a5fcc6d7"
+    }
+  ],
+  "excluded_samples": [],
+  "compatibility_groups": [
+    {
+      "solution_ids": [
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "gpt-5.6-luna",
+        "gpt-5.4-mini",
+        "gpt-5.2",
+        "grok-4.6",
+        "mistral-large-3"
+      ],
+      "solution_kind": "direct-multimodal",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "Direct multimodal output is constrained to the complete normalized CORD gt_parse schema."
+    },
+    {
+      "solution_ids": [
+        "mistral-document-ai-2512",
+        "mistral-ocr-4.0",
+        "azure-vision-read",
+        "content-understanding-read",
+        "content-understanding-layout"
+      ],
+      "solution_kind": "ocr-normalizer",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "OCR output is normalized under the complete normalized CORD gt_parse schema."
+    },
+    {
+      "solution_ids": [
+        "mistral-document-ai-2512-text",
+        "mistral-ocr-4.0-text",
+        "azure-vision-read-text",
+        "content-understanding-read-text",
+        "content-understanding-layout-text"
+      ],
+      "solution_kind": "ocr-text",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "Standalone OCR is measured by order-insensitive labeled-token recall against CORD valid_line text; full-page CER/WER are intentionally not reported because the reference excludes non-labeled text."
+    },
+    {
+      "solution_ids": [
+        "content-understanding-prebuilt-receipt-luna",
+        "document-intelligence-receipt-luna"
+      ],
+      "solution_kind": "native-normalizer",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "Native receipt output is normalized by GPT-5.6 Luna under the complete normalized CORD schema."
+    },
+    {
+      "solution_ids": [
+        "content-understanding-custom"
+      ],
+      "solution_kind": "native-custom",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "The CORD-specific custom analyzer emits the complete normalized dataset-native schema; its array-only singleton sub and cashprice fields are deterministically restored to CORD singleton shapes.",
+      "deterministic_mapping_id": "content-understanding-cord-native-v1"
+    },
+    {
+      "solution_ids": [
+        "content-understanding-prebuilt-receipt"
+      ],
+      "solution_kind": "native-prebuilt",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "Content Understanding receipt fields are deterministically projected into CORD; unsupported target fields remain absent and are scored as misses.",
+      "deterministic_mapping_id": "content-understanding-prebuilt-to-cord-v1"
+    },
+    {
+      "solution_ids": [
+        "document-intelligence-receipt"
+      ],
+      "solution_kind": "native-prebuilt",
+      "level": "full",
+      "comparable_quality": true,
+      "reason": "Document Intelligence receipt fields are deterministically projected into CORD; unsupported target fields remain absent and are scored as misses.",
+      "deterministic_mapping_id": "document-intelligence-prebuilt-to-cord-v1"
+    }
+  ],
+  "expected_sample_count": 20,
+  "expected_scored_sample_count": 18
+}

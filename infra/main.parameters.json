@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentName": {
+      "value": "${AZURE_ENV_NAME}"
+    },
+    "location": {
+      "value": "${AZURE_LOCATION}"
+    },
+    "resourceGroupName": {
+      "value": "${AZURE_RESOURCE_GROUP}"
+    },
+    "foundryResourceGroupName": {
+      "value": "${AZURE_FOUNDRY_RESOURCE_GROUP}"
+    },
+    "foundryAccountName": {
+      "value": "${AZURE_FOUNDRY_ACCOUNT}"
+    },
+    "foundryCustomSubdomainName": {
+      "value": "${AZURE_FOUNDRY_CUSTOM_SUBDOMAIN=}"
+    },
+    "foundryProjectName": {
+      "value": "${AZURE_FOUNDRY_PROJECT}"
+    },
+    "azureAiAuthMode": {
+      "value": "${AZURE_AI_AUTH_MODE=entra}"
+    },
+    "pythonRuntimeVersion": {
+      "value": "3.12"
+    },
+    "sroieRightsEvidence": {
+      "value": "${SROIE_RIGHTS_EVIDENCE=}"
+    },
+    "foundryApiKey": {
+      "value": "${AZURE_FOUNDRY_API_KEY=}"
+    },
+    "foundryOpenAiEndpoint": {
+      "value": "${AZURE_FOUNDRY_OPENAI_ENDPOINT}"
+    },
+    "foundryModelsEndpoint": {
+      "value": "${AZURE_FOUNDRY_MODELS_ENDPOINT}"
+    },
+    "anthropicEndpoint": {
+      "value": "${AZURE_ANTHROPIC_ENDPOINT}"
+    },
+    "mistralOcrEndpoint": {
+      "value": "${AZURE_MISTRAL_OCR_ENDPOINT}"
+    },
+    "contentUnderstandingEndpoint": {
+      "value": "${AZURE_CONTENT_UNDERSTANDING_ENDPOINT}"
+    },
+    "documentIntelligenceEndpoint": {
+      "value": "${AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT}"
+    },
+    "visionEndpoint": {
+      "value": "${AZURE_VISION_ENDPOINT}"
+    }
+  }
+}

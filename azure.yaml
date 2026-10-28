@@ -1,0 +1,44 @@
+name: receipt-bench
+resourceGroup: ${AZURE_RESOURCE_GROUP}
+metadata:
+  template: receipt-bench@0.2.0
+
+requiredVersions:
+  azd: ">= 1.27.0"
+
+infra:
+  provider: bicep
+  path: ./infra
+  module: main
+
+hooks:
+  prerestore:
+    windows:
+      shell: pwsh
+      run: python .\infra\scripts\stage-package.py
+      continueOnError: false
+      interactive: false
+    posix:
+      shell: sh
+      run: python3 ./infra/scripts/stage-package.py
+      continueOnError: false
+      interactive: false
+
+services:
+  web:
+    project: ./infra/package
+    language: python
+    host: appservice
+    resourceName: ${AZURE_WEB_APP_NAME}
+    hooks:
+      prepackage:
+        windows:
+          shell: pwsh
+          run: python ..\scripts\stage-package.py --in-place
+          continueOnError: false
+          interactive: false
+        posix:
+          shell: sh
+          run: python3 ../scripts/stage-package.py --in-place
+          continueOnError: false
+          interactive: false
